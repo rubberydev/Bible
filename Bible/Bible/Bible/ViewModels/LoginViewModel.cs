@@ -4,9 +4,14 @@
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using Bible.Services;
 
     public class LoginViewModel : BaseViewModel
     {
+        #region Services
+        private ApiService apiService;
+        #endregion
+
 
         #region Attributes
 
@@ -54,12 +59,12 @@
 
         public LoginViewModel()
         {
-           
+            this.apiService = new ApiService();
             this.IsRemembered = true;
             this.IsEnabled = true;
 
-            this.Email = "juliohg8913@gmail.com";
-            this.Password = "Developer123.";
+            this.Email = "jamesbond@gmail.com";
+            
         }
 
         #endregion
@@ -96,26 +101,52 @@
 
                 return;
             }
-
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            if(Email != "juliohg8913@gmail.com" || Password != "Developer123.")
+            var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
-
                 await Application.Current.MainPage.DisplayAlert(
-                    "There was an error!!",
-                    "Incorrect Keys...",
-                    "Ok");
+                                  "There was an error!!",
+                                  "you must connect to internet... " ,
+                                  "Ok");
 
                 return;
+            }
 
+            var token = await this.apiService.GetToken(
+                "http://LandsAPI1.azurewebsites.net/Token",
+                this.Email,
+                this.Password);
+
+            if (token == null)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                                  "Error",
+                                  "Something was wrong, please try again later...",
+                                  "Ok");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                                  "Error",
+                                  token.ErrorDescription,
+                                  "Ok");
+                return;
             }
 
             var mainViewModel = MainViewModel.GetInstance();
-            
+            mainViewModel.Token = token;
             mainViewModel.Biblies = new BibliesViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new BibliesPage());
 

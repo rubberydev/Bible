@@ -1,8 +1,16 @@
 ﻿namespace Bible.ViewModels
 {
+    using Models;
+
     public class MainViewModel
     {
-        #region ViewModel
+        #region Properties
+        public TokenResponse Token
+        {
+            get;
+            set;
+        }
+
         public LoginViewModel Login
         {
             get;

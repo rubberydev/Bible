@@ -1,6 +1,7 @@
 ﻿namespace Bible.ViewModels
 {
-    public class BibliesViewModel
+    public class BibliesViewModel : BaseViewModel
     {
+
     }
 }
