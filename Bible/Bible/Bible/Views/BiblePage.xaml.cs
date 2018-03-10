@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Bible.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BibliesPage : ContentPage
+	public partial class BiblePage : ContentPage
 	{
-		public BibliesPage ()
+		public BiblePage ()
 		{
 			InitializeComponent ();
 		}

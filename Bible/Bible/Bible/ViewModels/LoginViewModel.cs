@@ -63,8 +63,8 @@
             this.IsRemembered = true;
             this.IsEnabled = true;
 
-            this.Email = "jamesbond@gmail.com";
-            
+            this.Email = "jzuluaga55@gmail.com";
+            this.Password = "123456";
         }
 
         #endregion
@@ -147,8 +147,8 @@
 
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Token = token;
-            mainViewModel.Biblies = new BibliesViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new BibliesPage());
+            mainViewModel.Bibles = new BiblesViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new BiblesPage());
 
             this.IsRunning = false;
             this.IsEnabled = true;

@@ -4,7 +4,7 @@
 
     public class MainViewModel
     {
-        #region Properties
+        #region ViewModels
         public TokenResponse Token
         {
             get;
@@ -17,11 +17,31 @@
             set;
         }
 
-        public BibliesViewModel Biblies
+        public BiblesViewModel Bibles
         {
             get;
             set;
-        }      
+        }
+
+        public BibleViewModel Bible
+        {
+            get;
+            set;
+        }
+
+        public BookViewModel Book
+        {
+            get;
+            set;
+        }
+        #endregion
+
+        #region Properties
+        public string SelectedModule
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Constructor
@@ -29,6 +49,7 @@
         {
             instance = this;
             this.Login = new LoginViewModel();
+            
         }
         #endregion
 
@@ -45,5 +66,7 @@
             return instance;
         }
         #endregion
+
+
     }
 }
