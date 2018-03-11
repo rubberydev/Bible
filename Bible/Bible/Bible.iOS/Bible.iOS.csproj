@@ -143,4 +143,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Bible.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\twiter_logo.png" />
+  </ItemGroup>
 </Project>

@@ -63,7 +63,7 @@
             this.IsRemembered = true;
             this.IsEnabled = true;
 
-            this.Email = "jzuluaga55@gmail.com";
+            this.Email = "j@g.com";
             this.Password = "123456";
         }
 

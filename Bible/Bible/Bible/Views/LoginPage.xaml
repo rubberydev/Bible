@@ -96,6 +96,10 @@
                        WidthRequest="100">
                     </Image>
                     <Image
+                       Source="twiter_logo"
+                       WidthRequest="85">
+                    </Image>
+                    <Image
                         Source="linkedin_logo"
                         WidthRequest="100">
                     </Image>
