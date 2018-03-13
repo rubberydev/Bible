@@ -33,7 +33,8 @@
         {
             get;
             set;
-        }
+        } 
+
         #endregion
 
         #region Properties
@@ -41,7 +42,7 @@
         {
             get;
             set;
-        }
+        }        
         #endregion
 
         #region Constructor

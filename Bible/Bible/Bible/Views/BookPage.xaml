@@ -8,15 +8,15 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Book}"
-            Padding="5">
+            Margin="5">            
             <ListView 
                 HasUnevenRows="true" 
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Verses}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
+                ItemsSource="{Binding Verses}" >                              
+                <ListView.ItemTemplate>                    
+                    <DataTemplate>                        
+                        <ViewCell>                  
+                            <Grid>           
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -32,12 +32,32 @@
                                     Grid.Column="1"
                                     Text="{Binding Text}"
                                     TextColor="Black">
-                                </Label>
+                                </Label>                                
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+            <StackLayout
+                HorizontalOptions="Center"                
+                Orientation="Horizontal">
+            <Button
+                BackgroundColor="DeepSkyBlue" 
+                Command="{Binding prevChapterCommand}"
+                IsEnabled="{Binding IsEnabledPrev, Mode=TwoWay}"
+                HorizontalOptions="FillAndExpand"
+                Text="Before chapter"                
+                TextColor="WhiteSmoke">
+            </Button>
+            <Button                
+                BackgroundColor="DarkSeaGreen" 
+                Command="{Binding NextChapterCommand}"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="{Binding IsEnabledNext, Mode=TwoWay}"
+                Text="Next chapter"
+                TextColor="WhiteSmoke">
+            </Button>
+           </StackLayout>
+        </StackLayout>        
     </ContentPage.Content>
 </ContentPage>

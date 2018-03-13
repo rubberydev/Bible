@@ -1,10 +1,11 @@
 ﻿namespace Bible.ViewModels
-{
-    using System;
+{    
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Reflection;
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
     using Xamarin.Forms;
@@ -17,6 +18,7 @@
 
         #region Attributes
         private Book book;
+        private int state;
         private bool isRefreshing;
         private ContentResponse contentResponse;
         private ObservableCollection<Verse> verses;
@@ -33,7 +35,9 @@
         {
             get { return this.verses; }
             set { SetValue(ref this.verses, value); }
-        }
+        }    
+        
+        
         #endregion
 
         #region Constructors
@@ -41,11 +45,45 @@
         {
             this.apiService = new ApiService();
             this.book = book;
+            this.state = 0;
             this.LoadContent();
+            
+        }
+        #endregion
+        
+        #region Commands
+        public ICommand NextChapterCommand
+        {
+            
+            get
+            {                
+                return new RelayCommand(setNext);
+            }
+        }        
+
+        public ICommand prevChapterCommand
+        {
+            get
+            {                
+                return new RelayCommand(setPrev);
+            }
+        }
+
+        private void setNext()
+        {
+            this.state = 1;
+            LoadContent();
+        }
+
+        private void setPrev()
+        {
+            this.state = 2;
+            LoadContent();
         }
         #endregion
 
         #region Methods
+
         private async void LoadContent()
         {
             this.IsRefreshing = true;
@@ -61,6 +99,17 @@
                 return;
             }
 
+            if (this.state == 1)
+            {
+                this.book.Shortname = this.contentResponse.Contents[0].Nav.NextChapter;
+            }
+
+            if (this.state == 2)
+            {
+                this.book.Shortname = this.contentResponse.Contents[0].Nav.PrevChapter;
+            }
+
+
             var response = await this.apiService.Get<ContentResponse>(
                 "http://api.biblesupersearch.com",
                 "/api",
@@ -69,6 +118,7 @@
                     MainViewModel.GetInstance().SelectedModule,
                     this.book.Shortname));
 
+            
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
@@ -79,10 +129,12 @@
                 return;
             }
 
-            this.contentResponse = (ContentResponse)response.Result;
+            this.contentResponse = (ContentResponse)response.Result;            
             this.IsRefreshing = false;
+           
 
             var contentResult = contentResponse.Contents[0];
+            
 
             var type = typeof(Verses);
             var properties = type.GetRuntimeFields();
@@ -130,6 +182,7 @@
             });
 
             this.Verses = new ObservableCollection<Verse>(myVerses);
+            
         }
         #endregion
     }

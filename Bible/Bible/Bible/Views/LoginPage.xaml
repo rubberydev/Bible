@@ -3,8 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    x:Class="Bible.Views.LoginPage"
-    Title="Biblie">
+    x:Class="Bible.Views.LoginPage"    
+    Title="Bible Versions">
     <ContentPage.Content>
         <ScrollView BindingContext="{Binding Login}">
             <StackLayout
@@ -96,7 +96,7 @@
                        WidthRequest="100">
                     </Image>
                     <Image
-                       Source="twiter_logo"
+                       Source="twiter_logo"                       
                        WidthRequest="85">
                     </Image>
                     <Image

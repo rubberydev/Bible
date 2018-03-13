@@ -14,6 +14,6 @@
         public string NextChapter { get; set; }
 
         [JsonProperty("prev_chapter")]
-        public object PrevChapter { get; set; }
+        public string PrevChapter { get; set; }
     }
 }
