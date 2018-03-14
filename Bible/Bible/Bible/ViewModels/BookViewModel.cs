@@ -20,6 +20,8 @@
         private Book book;
         private int state;
         private bool isRefreshing;
+        private bool isEnabledNext;
+        private bool isEnabledPrev;
         private ContentResponse contentResponse;
         private ObservableCollection<Verse> verses;
         #endregion
@@ -35,9 +37,19 @@
         {
             get { return this.verses; }
             set { SetValue(ref this.verses, value); }
-        }    
-        
-        
+        }
+
+        public bool IsEnabledNext
+        {
+            get { return this.isEnabledNext; }
+            set { SetValue(ref this.isEnabledNext, value); }
+        }
+
+        public bool IsEnabledPrev
+        {
+            get { return this.isEnabledPrev; }
+            set { SetValue(ref this.isEnabledPrev, value); }
+        }
         #endregion
 
         #region Constructors
@@ -47,14 +59,15 @@
             this.book = book;
             this.state = 0;
             this.LoadContent();
+            this.isEnabledNext = true;
             
+
         }
         #endregion
         
         #region Commands
         public ICommand NextChapterCommand
-        {
-            
+        {           
             get
             {                
                 return new RelayCommand(setNext);
@@ -68,7 +81,9 @@
                 return new RelayCommand(setPrev);
             }
         }
+        #endregion
 
+        #region Methods
         private void setNext()
         {
             this.state = 1;
@@ -80,13 +95,11 @@
             this.state = 2;
             LoadContent();
         }
-        #endregion
-
-        #region Methods
 
         private async void LoadContent()
         {
             this.IsRefreshing = true;
+            
 
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -99,16 +112,44 @@
                 return;
             }
 
-            if (this.state == 1)
+
+            if (this.state == 1 && this.contentResponse.Contents[0].Nav.NextChapter != null)
             {
+                this.IsEnabledPrev = true;                
                 this.book.Shortname = this.contentResponse.Contents[0].Nav.NextChapter;
+
+                if (!this.book.Shortname.ToLower().Contains(this.book.Name.ToLower()))
+                {
+                    this.IsEnabledNext = false;
+                    this.IsRefreshing = false;
+                    return;
+                }
+
+                if (this.contentResponse.Contents[0].BookId == 66 && this.contentResponse.Contents[0].ChapterVerse == "21")
+                {
+                    IsEnabledNext = false;
+                }
             }
 
-            if (this.state == 2)
+            if (this.state == 2 && this.contentResponse.Contents[0].Nav.PrevChapter != null)
             {
+                this.IsEnabledPrev = true;
                 this.book.Shortname = this.contentResponse.Contents[0].Nav.PrevChapter;
-            }
+                this.IsEnabledNext = true;
 
+                if (!this.book.Shortname.ToLower().Contains(this.book.Name.ToLower()))
+                {
+                    this.IsEnabledPrev = false;
+                    this.IsEnabledNext = true;
+                    this.IsRefreshing = false;
+                    return;
+                }
+
+                if(this.contentResponse.Contents[0].ChapterVerse == "2")
+                {
+                    this.IsEnabledPrev = false;
+                }
+            }            
 
             var response = await this.apiService.Get<ContentResponse>(
                 "http://api.biblesupersearch.com",
@@ -137,6 +178,7 @@
             
 
             var type = typeof(Verses);
+           
             var properties = type.GetRuntimeFields();
             Bible bible = null;
 
@@ -182,7 +224,7 @@
             });
 
             this.Verses = new ObservableCollection<Verse>(myVerses);
-            
+                       
         }
         #endregion
     }
