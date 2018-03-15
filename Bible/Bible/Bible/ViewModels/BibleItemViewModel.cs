@@ -16,7 +16,9 @@
                 return new RelayCommand(SelectBible);
             }
         }
+        #endregion
 
+        #region Methods
         private async void SelectBible()
         {
             var mainViewModel = MainViewModel.GetInstance();

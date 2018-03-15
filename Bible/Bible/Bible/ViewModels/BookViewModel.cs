@@ -59,8 +59,7 @@
             this.book = book;
             this.state = 0;
             this.LoadContent();
-            this.isEnabledNext = true;
-            
+            this.isEnabledNext = true;      
 
         }
         #endregion
@@ -125,7 +124,8 @@
                     return;
                 }
 
-                if (this.contentResponse.Contents[0].BookId == 66 && this.contentResponse.Contents[0].ChapterVerse == "21")
+                if (this.contentResponse.Contents[0].BookId == 66 && 
+                    this.contentResponse.Contents[0].ChapterVerse == "21")
                 {
                     IsEnabledNext = false;
                 }

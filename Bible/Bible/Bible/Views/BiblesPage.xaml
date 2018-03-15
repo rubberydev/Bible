@@ -16,7 +16,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid
+                                Padding="15">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding SelectBibleCommand}"/>
                                 </Grid.GestureRecognizers>

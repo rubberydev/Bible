@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Bible.Views.BiblePage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Bible">
+    Title="Books">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Bible}"
@@ -16,7 +16,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid 
+                                Padding="20">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding SelectBookCommand}"/>
                                 </Grid.GestureRecognizers>
