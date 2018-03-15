@@ -12,25 +12,40 @@
             <ListView                 
                 HasUnevenRows="true" 
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Verses}" >                              
+                 ItemsSource="{Binding Verses}">                              
                 <ListView.ItemTemplate>                    
                     <DataTemplate>                        
                         <ViewCell>                  
                             <Grid 
                                 Padding="10">           
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    VerticalOptions="Start"
+                                    Grid.Column="0">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        TextColor="Black"
+                                        Text="Chapter">                                    
+                                    </Label>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        TextColor="Black"
+                                        Text="{Binding Chapter}">
+                                    </Label>
+                                </StackLayout>
                                 <Label
-                                    Grid.Column="0"
+                                    Grid.Column="1"
                                     FontAttributes="Bold"
                                     FontSize="Medium"
                                     Text="{Binding VerseNumber}"
                                     TextColor="Black">
                                 </Label>
                                 <Label
-                                    Grid.Column="1"
+                                    Grid.Column="2"                                    
                                     Text="{Binding Text}"
                                     TextColor="Black">
                                 </Label>                                
