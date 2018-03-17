@@ -2,8 +2,10 @@
 {    
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Globalization;
     using System.Linq;
     using System.Reflection;
+    using System.Text;
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using Models;
@@ -83,6 +85,7 @@
         #endregion
 
         #region Methods
+
         private void setNext()
         {
             this.state = 1;
@@ -157,7 +160,11 @@
                 string.Format(
                     "?bible={0}&reference={1}",
                     MainViewModel.GetInstance().SelectedModule,
-                    this.book.Shortname));
+                    this.book.Shortname.Replace("á", "a")
+                                       .Replace("é", "e")
+                                       .Replace("í", "i")
+                                       .Replace("ó", "o")
+                                       .Replace("ú", "u")));
 
             
             if (!response.IsSuccess)
@@ -226,6 +233,9 @@
             this.Verses = new ObservableCollection<Verse>(myVerses);
                        
         }
+
+
+       
         #endregion
     }
 }
