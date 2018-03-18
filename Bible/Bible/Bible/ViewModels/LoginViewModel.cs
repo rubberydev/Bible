@@ -148,8 +148,8 @@
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Token = token;
             mainViewModel.Bibles = new BiblesViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new BiblesPage());
-
+            
+            Application.Current.MainPage = new MasterPage();
             this.IsRunning = false;
             this.IsEnabled = true;
 

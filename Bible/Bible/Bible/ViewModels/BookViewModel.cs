@@ -1,15 +1,13 @@
 ﻿namespace Bible.ViewModels
-{    
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Globalization;
-    using System.Linq;
-    using System.Reflection;
-    using System.Text;
-    using System.Windows.Input;
+{
     using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Reflection;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class BookViewModel : BaseViewModel

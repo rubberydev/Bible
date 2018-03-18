@@ -1,6 +1,8 @@
 ﻿namespace Bible.ViewModels
 {
     using Models;
+    using System;
+    using System.Collections.ObjectModel;
 
     public class MainViewModel
     {
@@ -42,7 +44,13 @@
         {
             get;
             set;
-        }        
+        }
+
+        public ObservableCollection<MenuItemViewModel> Menus
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Constructor
@@ -50,8 +58,9 @@
         {
             instance = this;
             this.Login = new LoginViewModel();
-            
+            this.LoadMenu();
         }
+        
         #endregion
 
         #region Singleton
@@ -68,6 +77,19 @@
         }
         #endregion
 
+        #region Methods
+        private void LoadMenu()
+        {
+            this.Menus = new ObservableCollection<MenuItemViewModel>();
+
+            this.Menus.Add(new MenuItemViewModel
+            {                 
+               Icon = "ic_exit_to_app",
+               Title = "Log out" ,
+               PageName = "LoginPage" 
+            });
+        }
+        #endregion
 
     }
 }
