@@ -59,8 +59,7 @@
             this.book = book;
             this.state = 0;
             this.LoadContent();
-            this.isEnabledNext = true;      
-
+            this.isEnabledNext = true;            
         }
         #endregion
         

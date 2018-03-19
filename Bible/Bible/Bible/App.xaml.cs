@@ -1,5 +1,7 @@
 ﻿namespace Bible
 {
+    using Bible.Helpers;
+    using Bible.ViewModels;
     using Bible.Views;
     using Xamarin.Forms;
 
@@ -19,7 +21,19 @@
         {
             InitializeComponent();
 
-            this.MainPage = new NavigationPage(new LoginPage());
+            if(string.IsNullOrEmpty(Settings.Token))
+            {
+                this.MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.Bibles = new BiblesViewModel();
+                this.MainPage = new MasterPage();
+            }
+            
             
         } 
         #endregion

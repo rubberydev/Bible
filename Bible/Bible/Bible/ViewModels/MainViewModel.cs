@@ -7,7 +7,7 @@
     public class MainViewModel
     {
         #region ViewModels
-        public TokenResponse Token
+        public string Token
         {
             get;
             set;
@@ -35,8 +35,13 @@
         {
             get;
             set;
-        } 
+        }
 
+        public string TokenType
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Properties

@@ -1,8 +1,9 @@
 ﻿namespace Bible.ViewModels
 {
-    using Views;
     using GalaSoft.MvvmLight.Command;
+    using Helpers;
     using System.Windows.Input;
+    using Views;
     using Xamarin.Forms;
 
     public class MenuItemViewModel
@@ -31,11 +32,11 @@
         {
             if (this.PageName == "LoginPage")
             {
-                //Settings.Token = string.Empty;
-                //Settings.TokenType = string.Empty;
+                Settings.Token = string.Empty;
+                Settings.TokenType = string.Empty;
                 var mainViewModel = MainViewModel.GetInstance();
-                //mainViewModel.Token = string.Empty;
-                //mainViewModel.TokenType = string.Empty;
+                mainViewModel.Token = string.Empty;
+                mainViewModel.TokenType = string.Empty;
                 Application.Current.MainPage = new LoginPage();
             }
         }

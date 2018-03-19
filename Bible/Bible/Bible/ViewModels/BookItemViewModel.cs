@@ -24,8 +24,8 @@
         private async void SelectBook()
         {
             MainViewModel.GetInstance().Book = new BookViewModel(this);
-
-            await Application.Current.MainPage.Navigation.PushAsync(new BookPage());
+            await App.Navigator.PushAsync(new BookPage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new BookPage());
         }
         #endregion
     }

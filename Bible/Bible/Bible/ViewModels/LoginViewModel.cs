@@ -4,7 +4,8 @@
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
-    using Bible.Services;
+    using Services;
+    using Helpers;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -146,10 +147,19 @@
             }
 
             var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.Token = token;
-            mainViewModel.Bibles = new BiblesViewModel();
-            
+            mainViewModel.Token = token.AccessToken;
+            mainViewModel.TokenType = token.TokenType;
+
+            if (this.IsRemembered)
+            {
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.TokenType;
+
+            }
+
+            mainViewModel.Bibles = new BiblesViewModel();            
             Application.Current.MainPage = new MasterPage();
+
             this.IsRunning = false;
             this.IsEnabled = true;
 
