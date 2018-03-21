@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Bible.Views.SearchAdvancedPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    Title="Search by Verse">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Bible}"            
+            Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>                
+                <Label
+                    FontAttributes="Bold"                    
+                    Grid.Row="0"
+                    Grid.Column="0"  
+                    HorizontalOptions="FillAndExpand"
+                    Margin="5"
+                    TextColor="Black"
+                    Text="Book"
+                    VerticalOptions="Center">
+                </Label>
+                <Picker
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding Books}" 
+                    ItemDisplayBinding="{Binding Name}"
+                    TextColor="Black"
+                    Title="Select a book">
+                </Picker>
+                <Label
+                    FontAttributes="Bold"                    
+                    Grid.Row="1"
+                    Grid.Column="0"  
+                    HorizontalOptions="FillAndExpand"
+                    Margin="5"
+                    TextColor="Black"
+                    Text="Chapter and Verses"
+                    VerticalOptions="Center">
+                </Label>
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Placeholder="e.g 1:3-10"
+                    HorizontalOptions="FillAndExpand">                    
+                </Entry>                
+            </Grid>
+            <StackLayout
+                Margin="10"
+                HorizontalOptions="FillAndExpand">
+                <Button                    
+                    BackgroundColor="DeepSkyBlue"                    
+                    Command="{Binding SearchVersesCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="WhiteSmoke"
+                    Text="Search"
+                    WidthRequest="80">
+                </Button>
+                <ActivityIndicator
+                    HorizontalOptions="FillAndExpand"
+                    IsRunning="{Binding IsRunnning, Mode=TwoWay}">
+                </ActivityIndicator>
+            </StackLayout>            
+        </StackLayout>        
+    </ContentPage.Content>
+</ContentPage>
