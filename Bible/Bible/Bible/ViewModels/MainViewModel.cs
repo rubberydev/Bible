@@ -85,13 +85,27 @@
         #region Methods
         private void LoadMenu()
         {
-            this.Menus = new ObservableCollection<MenuItemViewModel>();
+            this.Menus = new ObservableCollection<MenuItemViewModel>();            
 
             this.Menus.Add(new MenuItemViewModel
-            {                 
-               Icon = "ic_exit_to_app",
-               Title = "Log out" ,
-               PageName = "LoginPage" 
+            {
+                Icon = "ic_search",
+                Title = "Advanced search",
+                PageName = "BiblesSearchPage"
+            });
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_search",
+                Title = "Search by key word",
+                PageName = "BiblesSearchPage"
+            });
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_exit_to_app",
+                Title = "Log out",
+                PageName = "LoginPage"
             });
         }
         #endregion

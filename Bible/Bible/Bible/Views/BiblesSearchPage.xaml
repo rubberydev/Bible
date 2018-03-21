@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="Bible.Views.BiblesSearchPage"
+BindingContext="{Binding Main, Source={StaticResource Locator}}"
+Title="Advanced Search">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Bibles}"
+            Padding="5">
+            <ListView 
+                HasUnevenRows="true" 
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Bibles}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                BackgroundColor="DimGray"
+                                CornerRadius="15"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectBibleCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image 
+                                    Grid.Column="0"
+                                    HorizontalOptions="StartAndExpand"
+                                    Source="ic_search">
+                                    </Image>
+                                    <StackLayout
+                                    Grid.Column="1">
+                                        <Label                                        
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"                                        
+                                        Text="{Binding Name}"
+                                        TextColor="WhiteSmoke">
+                                        </Label>
+                                        <Label                                        
+                                        Text="{Binding Module}"
+                                         TextColor="WhiteSmoke">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                    Grid.Column="2"
+                                    HorizontalOptions="End" 
+                                    Source="ic_chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

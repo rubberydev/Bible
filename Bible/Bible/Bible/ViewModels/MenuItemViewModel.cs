@@ -39,6 +39,13 @@
                 mainViewModel.TokenType = string.Empty;
                 Application.Current.MainPage = new LoginPage();
             }
+
+            if (this.PageName == "BiblesSearchPage")
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Bibles = new BiblesViewModel();
+                App.Navigator.PushAsync(new BiblesSearchPage());                
+            }
         }
         #endregion
     }

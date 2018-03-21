@@ -18,7 +18,7 @@
 
         #region Attributes
         private Book book;
-        private int state;
+        private int state;       
         private bool isRefreshing;
         private bool isEnabledNext;
         private bool isEnabledPrev;
@@ -59,7 +59,8 @@
             this.book = book;
             this.state = 0;
             this.LoadContent();
-            this.isEnabledNext = true;            
+            this.isEnabledNext = true;
+            
         }
         #endregion
         
@@ -97,8 +98,7 @@
 
         private async void LoadContent()
         {
-            this.IsRefreshing = true;
-            
+            this.IsRefreshing = true;            
 
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
