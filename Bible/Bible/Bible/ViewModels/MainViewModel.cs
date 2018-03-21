@@ -37,6 +37,12 @@
             set;
         }
 
+        public SearchAdvancedViewModel Search
+        {
+            get;
+            set;
+        }
+
         public string TokenType
         {
             get;
@@ -49,7 +55,7 @@
         {
             get;
             set;
-        }
+        }        
 
         public ObservableCollection<MenuItemViewModel> Menus
         {
@@ -62,7 +68,7 @@
         public MainViewModel()
         {
             instance = this;
-            this.Login = new LoginViewModel();
+            this.Login = new LoginViewModel();            
             this.LoadMenu();
         }
         

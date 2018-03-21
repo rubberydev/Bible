@@ -13,7 +13,7 @@
         private ApiService apiService;
         #endregion
 
-        #region Attributes
+        #region Attributes        
         private Bible bible;
         private bool isRefreshing;
         private BookResponse bookResponse;
@@ -31,7 +31,7 @@
         {
             get { return this.books; }
             set { SetValue(ref this.books, value); }
-        }
+        }        
         #endregion
 
         #region Constructors

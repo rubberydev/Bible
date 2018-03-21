@@ -3,6 +3,7 @@
     using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -18,7 +19,8 @@
 
         #region Attributes
         private Book book;
-        private int state;       
+        private string nameBook;
+        private int state;        
         private bool isRefreshing;
         private bool isEnabledNext;
         private bool isEnabledPrev;
@@ -39,6 +41,12 @@
             set { SetValue(ref this.verses, value); }
         }
 
+        public string NameBook
+        {
+            get { return this.nameBook; }
+            set { SetValue(ref this.nameBook, value); }
+        }
+
         public bool IsEnabledNext
         {
             get { return this.isEnabledNext; }
@@ -52,18 +60,19 @@
         }
         #endregion
 
-        #region Constructors
+        #region Constructors        
         public BookViewModel(Book book)
         {
             this.apiService = new ApiService();
-            this.book = book;
+            this.book = book;    
             this.state = 0;
             this.LoadContent();
             this.isEnabledNext = true;
             
         }
-        #endregion
         
+        #endregion
+
         #region Commands
         public ICommand NextChapterCommand
         {           
@@ -229,10 +238,7 @@
 
             this.Verses = new ObservableCollection<Verse>(myVerses);
                        
-        }
-
-
-       
+        }        
         #endregion
     }
 }

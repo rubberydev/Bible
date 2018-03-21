@@ -1,5 +1,6 @@
 ﻿namespace Bible.ViewModels
 {
+    using System;
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using Models;
@@ -15,7 +16,8 @@
             {
                 return new RelayCommand(SelectBook);
             }
-        }
+        }       
+        
         #endregion
 
 
@@ -26,7 +28,7 @@
             MainViewModel.GetInstance().Book = new BookViewModel(this);
             await App.Navigator.PushAsync(new BookPage());
             
-        }
+        }        
         #endregion
     }
 }

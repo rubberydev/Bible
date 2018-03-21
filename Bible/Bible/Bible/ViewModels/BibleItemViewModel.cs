@@ -41,7 +41,8 @@
         private async void LoadBooks()
         {
             var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.Bible = new BibleViewModel(this);
+            //mainViewModel.Bible = new BibleViewModel(this);
+            mainViewModel.Search = new SearchAdvancedViewModel(this);
             mainViewModel.SelectedModule = Module;
             await App.Navigator.PushAsync(new SearchAdvancedPage());
             
