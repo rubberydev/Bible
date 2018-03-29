@@ -82,7 +82,7 @@
                     <Entry
                         Grid.Row="1"
                         Grid.Column="1"                        
-                        Placeholder="e.g 1:3-10"
+                        Placeholder="e.g 1:3-10"                        
                         Text="{Binding VersesParameter, Mode=TwoWay}">
                     </Entry>
                     <ActivityIndicator

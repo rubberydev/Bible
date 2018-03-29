@@ -8,6 +8,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Reflection;
+    using System.Text.RegularExpressions;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -82,17 +83,15 @@
 
         #region Methods
         private async void LoadBooks()
-        {
-            //this.IsRefreshing = true;
+        {         
 
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
-            {
-               // this.IsRefreshing = false;
+            {               
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     connection.Message,
-                    "Accept");
+                    "Got it !!");
                 return;
             }
 
@@ -102,12 +101,11 @@
                 string.Format("/books?language={0}", bible.LangShort));
 
             if (!response.IsSuccess)
-            {
-               // this.IsRefreshing = false;
+            {               
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
-                    "Accept");
+                    "Got it !!");
                 return;
             }
 
@@ -121,12 +119,11 @@
                     "/books?language=en");
 
                 if (!response2.IsSuccess)
-                {
-                    //this.IsRefreshing = false;
+                {                    
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
                         response2.Message,
-                        "Accept");
+                        "Got it !!");
                     return;
                 }
 
@@ -139,8 +136,7 @@
             }
 
             this.Books = new ObservableCollection<BookItemViewModel>(
-                this.ToBookItemViewModel());
-           // this.IsRefreshing = false;
+                this.ToBookItemViewModel());           
         }
 
         private IEnumerable<BookItemViewModel> ToBookItemViewModel()
@@ -165,12 +161,13 @@
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     connection.Message,
-                    "Accept");
+                    "Got it !!");
                 return;
             }
 
             try
             {
+
                 if(string.IsNullOrEmpty(this.VersesParameter))
                 {
                     IsRunnning = false;
@@ -179,10 +176,22 @@
                       "we sorry...",
                       "you must type search in the following ( format )\n" +
                       " chapter: verse start - verse end",
-                      "Accept");
+                      "Got it !!");
                     return;
 
                 }
+
+                if (this.Reg_exp(this.VersesParameter)) {
+                    IsRunnning = false;
+
+                    await Application.Current.MainPage.DisplayAlert(
+                      "we sorry...",
+                      "the field verses should contain at least some of this character:\n" +
+                      " digits : -, it doesn't allow words or letter...",
+                      "Got it !!");
+                    return;
+                }
+
                 var response = await this.apiService.Get<ContentResponse>(
                                "http://api.biblesupersearch.com",
                                "/api",
@@ -197,7 +206,7 @@
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
                         response.Message,
-                        "Accept");
+                        "Got it !!");
                     return;
                 }
 
@@ -264,12 +273,19 @@
                 await Application.Current.MainPage.DisplayAlert(
                     "we sorry...",
                     "you must select a book ",
-                    "Accept");
+                    "Got it !!");
                 return;
             }
 
             
         } 
+
+        private bool Reg_exp(string fieldValue)
+        {            
+            string reg_exp = @"[^\d\:\-]";
+            Regex auxRegex = new Regex(reg_exp);            
+            return auxRegex.IsMatch(fieldValue);
+        }
         #endregion
     }
 }
