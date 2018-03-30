@@ -3,12 +3,10 @@
     using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
-    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Reflection;
-    using System.Text.RegularExpressions;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -177,17 +175,17 @@
                 return;
 
             }
-
-            if (this.SelectedItemBook.Shortname.Count() > 0)
+            
+            try
             {
                 var response = await this.apiService.Get<ContentResponse_>(
-                               "http://api.biblesupersearch.com",
-                               "/api",
-                               string.Format(
-                                   "?bible={0}&reference={1}&search={2}",
-                                   MainViewModel.GetInstance().SelectedModule,
-                                   this.SelectedItemBook.Shortname,
-                                   this.KeyWordParameter));
+                                              "http://api.biblesupersearch.com",
+                                              "/api",
+                                              string.Format(
+                                                  "?bible={0}&reference={1}&search={2}",
+                                                  MainViewModel.GetInstance().SelectedModule,
+                                                  this.SelectedItemBook.Shortname,
+                                                  this.KeyWordParameter));
 
                 if (!response.IsSuccess)
                 {
@@ -256,13 +254,83 @@
                 }
 
             }
-            else
+            catch 
             {
 
+                var response = await this.apiService.Get<ContentResponse_>(
+                             "http://api.biblesupersearch.com",
+                             "/api",
+                             string.Format(
+                                 "?bible={0}&search={1}",
+                                 MainViewModel.GetInstance().SelectedModule,
+                                 this.KeyWordParameter));
 
+                if (!response.IsSuccess)
+                {
+                    await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        response.Message,
+                        "Got it !!"
+                        );
+                    return;
+                }
 
+                this.contentResponse_ = (ContentResponse_)response.Result;
+                this.IsRunnning = false;
 
-            }
+                for (int i = 0; i < this.contentResponse_.Contents.Count(); i++)
+                {
+                    var contentResult = contentResponse_.Contents[i];
+
+                    var type = typeof(Verses);
+
+                    var properties = type.GetRuntimeFields();
+                    Bible bible = null;
+
+                    foreach (var property in properties)
+                    {
+                        bible = (Bible)property.GetValue(contentResult.Verses);
+                        if (bible != null)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (bible == null)
+                    {
+                        return;
+                    }
+
+                    type = typeof(Bible);
+                    properties = type.GetRuntimeFields();
+                    Dictionary<string, Verse> chapter = null;
+
+                    foreach (var property in properties)
+                    {
+                        if (property.Name.StartsWith("<Chapter"))
+                        {
+                            chapter = (Dictionary<string, Verse>)property.GetValue(bible);
+
+                            if (chapter != null)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    var myVerses = chapter.Select(v => new Verse
+                    {
+                        Book = v.Value.Book,
+                        Chapter = v.Value.Chapter,
+                        Id = v.Value.Id,
+                        Italics = v.Value.Italics,
+                        Text = v.Value.Text,
+                        VerseNumber = v.Value.VerseNumber,
+                    });
+
+                    this.Verses = new ObservableCollection<Verse>(myVerses);
+                }
+            }  
         }
         #endregion
     }
