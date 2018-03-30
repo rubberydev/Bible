@@ -20,8 +20,7 @@
         private Bible bible;
         private Book bookName;
         private string keyWordParameter;
-        private bool isRunnning;
-        private ContentResponse contentResponse;
+        private bool isRunnning;        
         private ContentResponse_ contentResponse_;
         private ObservableCollection<Verse> verses;
         private BookResponse bookResponse;
