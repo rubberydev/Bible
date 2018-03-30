@@ -3,7 +3,7 @@
     using Newtonsoft.Json;
     using System.Collections.Generic;
 
-    public class Content
+    public class Content_
     {
         [JsonProperty("book_id")]
         public long BookId { get; set; }
@@ -33,7 +33,6 @@
         public bool SingleVerse { get; set; }
 
         [JsonProperty("nav")]
-        public Nav Nav { get; set; }
-        
+        public List<Nav> _Nav { get; set; }
     }
 }

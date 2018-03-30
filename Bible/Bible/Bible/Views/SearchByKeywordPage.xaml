@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Bible.Views.SearchByKeywordPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    Title="Search by Keyword">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Search_}"
+            Margin="5">
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                Text="Result of search">
+            </Label>
+            <ListView                 
+                HasUnevenRows="true"                 
+                ItemsSource="{Binding Verses}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid 
+                                Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding VerseNumber}"
+                                    TextColor="Black">
+                                </Label>
+                                <Label
+                                    Grid.Column="1"                                    
+                                    Text="{Binding Text}"
+                                    TextColor="Black">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout
+                Margin="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        FontAttributes="Bold"                    
+                        Grid.Row="0"
+                        Grid.Column="0"                 
+                        TextColor="Black"
+                        Text="Book"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Picker                        
+                        Grid.Row="0"
+                        Grid.Column="1"                        
+                        ItemsSource="{Binding Books}" 
+                        ItemDisplayBinding="{Binding Name}"                         
+                        SelectedItem="{Binding SelectedItemBook}"
+                        TextColor="Black"
+                        Title="Select a book">
+                    </Picker>
+                    <Label
+                        FontAttributes="Bold"                    
+                        Grid.Row="1"
+                        Grid.Column="0"                         
+                        Margin="5"
+                        TextColor="Black"
+                        Text="Keyword *"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"                        
+                        Placeholder="type any keyword e.g heaven"                        
+                        Text="{Binding KeyWordParameter, Mode=TwoWay}">
+                    </Entry>
+                    <ActivityIndicator
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        HorizontalOptions="Start"
+                        IsRunning="{Binding IsRunnning, Mode=TwoWay}">
+                    </ActivityIndicator>
+                    <Button
+                        BackgroundColor="DeepSkyBlue" 
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="EndAndExpand"
+                        Text="Search"
+                        Command="{Binding SearchByWordCommand}"
+                        TextColor="WhiteSmoke">
+                    </Button>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

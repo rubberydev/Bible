@@ -46,6 +46,13 @@
                 mainViewModel.Bibles = new BiblesViewModel();
                 App.Navigator.PushAsync(new BiblesSearchPage());                
             }
+
+            if (this.PageName == "BiblesSearchWordPage")
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Bibles = new BiblesViewModel();
+                App.Navigator.PushAsync(new BiblesSearchWordPage());
+            }
         }
         #endregion
     }

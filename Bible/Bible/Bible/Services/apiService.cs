@@ -14,7 +14,9 @@
     {
         public async Task<Response> CheckConnection()
         {
-            if (!CrossConnectivity.Current.IsConnected)
+            var connectivity = CrossConnectivity.Current;
+
+            if (!connectivity.IsConnected)
             {
                 return new Response
                 {
@@ -23,7 +25,7 @@
                 };
             }
 
-            var isReachable = await CrossConnectivity.Current.IsRemoteReachable(
+            var isReachable = await connectivity.IsRemoteReachable(
                 "google.com");
             if (!isReachable)
             {
@@ -141,6 +143,7 @@
                 }
 
                 var model = JsonConvert.DeserializeObject<T>(result);
+               
                 return new Response
                 {
                     IsSuccess = true,
@@ -157,6 +160,7 @@
                 };
             }
         }
+            
 
         public async Task<Response> GetList<T>(
             string urlBase,

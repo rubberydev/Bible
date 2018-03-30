@@ -12,7 +12,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
 
-    public class SearchAdvancedViewModel : BaseViewModel
+    public class SearchByKeywordViewModel : BaseViewModel
     {
         #region Services
         private ApiService apiService;
@@ -21,19 +21,20 @@
         #region Attributes
         private Bible bible;
         private Book bookName;
-        private string versesParameter;
-        private bool isRunnning;        
+        private string keyWordParameter;
+        private bool isRunnning;
         private ContentResponse contentResponse;
+        private ContentResponse_ contentResponse_;
         private ObservableCollection<Verse> verses;
         private BookResponse bookResponse;
         private ObservableCollection<BookItemViewModel> books;
         #endregion
 
         #region Properties
-        public string VersesParameter
+        public string KeyWordParameter
         {
-            get { return this.versesParameter; }
-            set { SetValue(ref this.versesParameter, value); }
+            get { return this.keyWordParameter; }
+            set { SetValue(ref this.keyWordParameter, value); }
         }
 
         public bool IsRunnning
@@ -63,31 +64,33 @@
 
 
         #region Commands
-        public ICommand SearchVersesCommand
+        public ICommand SearchByWordCommand
         {
             get
             {
-                return new RelayCommand(LoadVersesAndChapters);
+                return new RelayCommand(LoadVersesFoundByWord);
             }
-        } 
+        }       
+
+
         #endregion
 
         #region Constructor
-        public SearchAdvancedViewModel(Bible bible)
+        public SearchByKeywordViewModel(Bible bible)
         {
             this.bible = bible;
             this.apiService = new ApiService();
             this.LoadBooks();
-        } 
+        }
         #endregion
 
         #region Methods
         private async void LoadBooks()
-        {         
+        {
 
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
-            {               
+            {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     connection.Message,
@@ -101,7 +104,7 @@
                 string.Format("/books?language={0}", bible.LangShort));
 
             if (!response.IsSuccess)
-            {               
+            {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
@@ -119,7 +122,7 @@
                     "/books?language=en");
 
                 if (!response2.IsSuccess)
-                {                    
+                {
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
                         response2.Message,
@@ -136,7 +139,7 @@
             }
 
             this.Books = new ObservableCollection<BookItemViewModel>(
-                this.ToBookItemViewModel());           
+                this.ToBookItemViewModel());
         }
 
         private IEnumerable<BookItemViewModel> ToBookItemViewModel()
@@ -149,9 +152,8 @@
             });
         }
 
-        private async void LoadVersesAndChapters()
+        private async void LoadVersesFoundByWord()
         {
-                       
             this.IsRunnning = true;
 
             var connection = await this.apiService.CheckConnection();
@@ -165,126 +167,102 @@
                 return;
             }
 
-            try
+            if(string.IsNullOrEmpty(this.KeyWordParameter))
             {
+                this.IsRunnning = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Sorry",
+                    "The keyword is required, try again",
+                    "Got it !!!");
+                return;
 
-                if(string.IsNullOrEmpty(this.VersesParameter))
-                {
-                    IsRunnning = false;
+            }
 
-                    await Application.Current.MainPage.DisplayAlert(
-                      "Sorry...",
-                      "you must type search in the following ( format )\n" +
-                      " chapter: verse start - verse end",
-                      "Got it !!");
-                    return;
-
-                }
-
-                if (this.Reg_exp(this.VersesParameter)) {
-                    IsRunnning = false;
-
-                    await Application.Current.MainPage.DisplayAlert(
-                      "Sorry...",
-                      "the field verses should contain at least some of this character:\n" +
-                      " digits : -, it doesn't allow words or letter...",
-                      "Got it !!");
-                    return;
-                }
-
-                var response = await this.apiService.Get<ContentResponse>(
+            if (this.SelectedItemBook.Shortname.Count() > 0)
+            {
+                var response = await this.apiService.Get<ContentResponse_>(
                                "http://api.biblesupersearch.com",
                                "/api",
                                string.Format(
-                                   "?bible={0}&reference={1}",
+                                   "?bible={0}&reference={1}&search={2}",
                                    MainViewModel.GetInstance().SelectedModule,
-                                    this.SelectedItemBook.Name + " " + this.VersesParameter));
+                                   this.SelectedItemBook.Shortname,
+                                   this.KeyWordParameter));
 
                 if (!response.IsSuccess)
                 {
-                    this.IsRunnning = false;
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
                         response.Message,
-                        "Got it !!");
+                        "Got it !!"
+                        );
                     return;
                 }
 
-                this.contentResponse = (ContentResponse)response.Result;
+                this.contentResponse_ = (ContentResponse_)response.Result;
                 this.IsRunnning = false;
 
-
-                var contentResult = contentResponse.Contents[0];
-
-
-                var type = typeof(Verses);
-
-                var properties = type.GetRuntimeFields();
-                Bible bible = null;
-
-                foreach (var property in properties)
+                for (int i = 0; i < this.contentResponse_.Contents.Count(); i++)
                 {
-                    bible = (Bible)property.GetValue(contentResult.Verses);
-                    if (bible != null)
+                    var contentResult = contentResponse_.Contents[i];
+
+                    var type = typeof(Verses);
+
+                    var properties = type.GetRuntimeFields();
+                    Bible bible = null;
+
+                    foreach (var property in properties)
                     {
-                        break;
-                    }
-                }
-
-                if (bible == null)
-                {
-                    return;
-                }
-
-                type = typeof(Bible);
-                properties = type.GetRuntimeFields();
-                Dictionary<string, Verse> chapter = null;
-
-                foreach (var property in properties)
-                {
-                    if (property.Name.StartsWith("<Chapter"))
-                    {
-                        chapter = (Dictionary<string, Verse>)property.GetValue(bible);
-
-                        if (chapter != null)
+                        bible = (Bible)property.GetValue(contentResult.Verses);
+                        if (bible != null)
                         {
                             break;
                         }
                     }
+
+                    if (bible == null)
+                    {
+                        return;
+                    }
+
+                    type = typeof(Bible);
+                    properties = type.GetRuntimeFields();
+                    Dictionary<string, Verse> chapter = null;
+
+                    foreach (var property in properties)
+                    {
+                        if (property.Name.StartsWith("<Chapter"))
+                        {
+                            chapter = (Dictionary<string, Verse>)property.GetValue(bible);
+
+                            if (chapter != null)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    var myVerses = chapter.Select(v => new Verse
+                    {
+                        Book = v.Value.Book,
+                        Chapter = v.Value.Chapter,
+                        Id = v.Value.Id,
+                        Italics = v.Value.Italics,
+                        Text = v.Value.Text,
+                        VerseNumber = v.Value.VerseNumber,
+                    });
+
+                    this.Verses = new ObservableCollection<Verse>(myVerses);
                 }
 
-                var myVerses = chapter.Select(v => new Verse
-                {
-                    Book = v.Value.Book,
-                    Chapter = v.Value.Chapter,
-                    Id = v.Value.Id,
-                    Italics = v.Value.Italics,
-                    Text = v.Value.Text,
-                    VerseNumber = v.Value.VerseNumber,
-                });
-
-                this.Verses = new ObservableCollection<Verse>(myVerses);
-
             }
-            catch (Exception)
+            else
             {
 
-                this.IsRunnning = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "we sorry...",
-                    "you must select a book ",
-                    "Got it !!");
-                return;
+
+
+
             }
-
-            
-        } 
-
-        private bool Reg_exp(string fieldValue)
-        {            
-            string reg_exp = @"[^\d\:\-]";
-            Regex auxRegex = new Regex(reg_exp);            
-            return auxRegex.IsMatch(fieldValue);
         }
         #endregion
     }

@@ -43,6 +43,13 @@
             set;
         }
 
+        public SearchByKeywordViewModel Search_
+        {
+            get;
+            set;
+        }
+
+
         public string TokenType
         {
             get;
@@ -104,7 +111,7 @@
             {
                 Icon = "ic_search",
                 Title = "Search by key word",
-                PageName = "BiblesSearchPage"
+                PageName = "BiblesSearchWordPage"
             });
 
             this.Menus.Add(new MenuItemViewModel
