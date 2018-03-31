@@ -62,10 +62,7 @@
         {
             this.apiService = new ApiService();
             this.IsRemembered = true;
-            this.IsEnabled = true;
-
-            this.Email = "j@g.com";
-            this.Password = "123456";
+            this.IsEnabled = true;            
         }
 
         #endregion

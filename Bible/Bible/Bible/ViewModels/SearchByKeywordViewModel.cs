@@ -74,7 +74,8 @@
 
         #region Constructor
         public SearchByKeywordViewModel(Bible bible)
-        {
+        {            
+            this.Verses = new ObservableCollection<Verse>();
             this.bible = bible;
             this.apiService = new ApiService();
             this.LoadBooks();
@@ -188,6 +189,7 @@
 
                 if (!response.IsSuccess)
                 {
+                    this.IsRunnning = false;
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
                         response.Message,
@@ -238,23 +240,15 @@
                             }
                         }
                     }
+                                     
 
-                    var myVerses = chapter.Select(v => new Verse
-                    {
-                        Book = v.Value.Book,
-                        Chapter = v.Value.Chapter,
-                        Id = v.Value.Id,
-                        Italics = v.Value.Italics,
-                        Text = v.Value.Text,
-                        VerseNumber = v.Value.VerseNumber,
-                    });
-
-                    this.Verses = new ObservableCollection<Verse>(myVerses);
+                     this.Verses.Add(new ObservableCollection<Verse>
+                         (this.ToVersesViewModel(chapter))[0]);
                 }
 
             }
-            catch 
-            {
+            catch
+            {               
 
                 var response = await this.apiService.Get<ContentResponse_>(
                              "http://api.biblesupersearch.com",
@@ -327,9 +321,23 @@
                         VerseNumber = v.Value.VerseNumber,
                     });
 
-                    this.Verses = new ObservableCollection<Verse>(myVerses);
+                    this.Verses.Add(new ObservableCollection<Verse>
+                         (this.ToVersesViewModel(chapter))[0]);
                 }
             }  
+        }
+
+        private IEnumerable<Verse> ToVersesViewModel(Dictionary<string, Verse> chapter)
+        {
+            return chapter.Select(v => new Verse
+            {
+                Book = v.Value.Book,
+                Chapter = v.Value.Chapter,
+                Id = v.Value.Id,
+                Italics = v.Value.Italics,
+                Text = v.Value.Text,
+                VerseNumber = v.Value.VerseNumber,
+            });
         }
         #endregion
     }
