@@ -13,6 +13,12 @@
             set;
         }
 
+        public TokenResponse Token_
+        {
+            get;
+            set;
+        }
+
         public User User
         {
             get;

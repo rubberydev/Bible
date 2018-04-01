@@ -13,6 +13,7 @@
             }
         }
 
+        const string isRemembered = "IsRemembered";
         const string token = "Token";
         const string tokenType = "TokenType";
         static readonly string stringDefault = string.Empty;
@@ -39,6 +40,18 @@
             set
             {
                 AppSettings.AddOrUpdateValue(tokenType, value);
+            }
+        }
+
+        public static string IsRemembered
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(isRemembered, stringDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(isRemembered, value);
             }
         }
     }
