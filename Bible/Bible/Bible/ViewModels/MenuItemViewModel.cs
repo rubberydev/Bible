@@ -30,6 +30,8 @@
         #region Methods
         private void Navigate()
         {
+            App.Master.IsPresented = false;
+
             if (this.PageName == "LoginPage")
             {
                 Settings.Token = string.Empty;
