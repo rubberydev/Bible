@@ -1,9 +1,10 @@
 ﻿namespace Bible.Models
-{  
+{
+    using SQLite.Net.Attributes;
 
     public class User
     {
-        
+        [PrimaryKey]
         public int UserId { get; set; }
         
         public string FirstName { get; set; }
@@ -16,7 +17,7 @@
         
         public string ImagePath { get; set; }
 
-        public int UserTypeId { get; set; }
+        public int? UserTypeId { get; set; }
         
         public byte[] ImageArray { get; set; }
         
@@ -43,6 +44,11 @@
             {
                 return string.Format("{0} {1}", this.FirstName, this.LastName);
             }
+        }
+
+        public override int GetHashCode()
+        {
+            return UserId;
         }
     }
 }

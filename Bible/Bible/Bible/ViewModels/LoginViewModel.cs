@@ -12,6 +12,7 @@
     {
         #region Services
         private ApiService apiService;
+        private DataService dataService;
         #endregion
 
 
@@ -61,6 +62,7 @@
 
         public LoginViewModel()
         {
+            this.dataService = new DataService();
             this.apiService = new ApiService();
             this.IsRemembered = true;
             this.IsEnabled = true;            
@@ -160,16 +162,29 @@
                 return;
             }
 
+            var apiService = Application.Current.Resources["APISecurity"].ToString();
+            var user = await this.apiService.GetUserByEmail(
+                apiService,
+                "/api",
+                "/Users/GetUserByEmail",
+                token.TokenType,
+                token.AccessToken,
+                this.Email);
+
+            var userLocal = Helpers.Converter.ToUserLocal(user);
+
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
+            mainViewModel.User = user;
 
             if (this.IsRemembered)
             {
                 Settings.Token = token.AccessToken;
                 Settings.TokenType = token.TokenType;
-
+                this.dataService.DeleteAllAndInsert(userLocal);
             }
+            
 
             mainViewModel.Bibles = new BiblesViewModel();            
             Application.Current.MainPage = new MasterPage();

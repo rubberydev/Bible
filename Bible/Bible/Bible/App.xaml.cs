@@ -1,8 +1,10 @@
 ﻿namespace Bible
 {
-    using Bible.Helpers;
-    using Bible.ViewModels;
-    using Bible.Views;
+    using Models;
+    using Helpers;
+    using Services;
+    using ViewModels;
+    using Views;
     using Xamarin.Forms;
 
     public partial class App : Application
@@ -27,9 +29,12 @@
             }
             else
             {
+                var dataService = new DataService();
+                var user = dataService.First<User>(false);
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Token = Settings.Token;
                 mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.User = user;
                 mainViewModel.Bibles = new BiblesViewModel();
                 this.MainPage = new MasterPage();
             }

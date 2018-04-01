@@ -13,6 +13,12 @@
             set;
         }
 
+        public User User
+        {
+            get;
+            set;
+        }
+
         public LoginViewModel Login
         {
             get;

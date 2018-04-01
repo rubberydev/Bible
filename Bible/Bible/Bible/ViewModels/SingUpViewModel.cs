@@ -239,8 +239,8 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "response.Message",
+                    "Error",
+                    response.Message,
                      "Got it !!");
                 return;
             }
@@ -249,8 +249,8 @@
             this.IsEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
-                "",
-                "Languages.UserRegisteredMessage",
+                "Congratulation",
+                "User has been registered sucessfully, already you can enter to application with this password and email",
                 "Got it !!");
             await Application.Current.MainPage.Navigation.PopAsync();
         }
