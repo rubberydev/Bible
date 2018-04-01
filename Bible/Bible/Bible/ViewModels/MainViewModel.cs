@@ -49,6 +49,11 @@
             set;
         }
 
+        public SingUpViewModel SingUp
+        {
+            get;
+            set;
+        }
 
         public string TokenType
         {

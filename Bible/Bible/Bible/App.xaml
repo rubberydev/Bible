@@ -5,8 +5,15 @@
     xmlns:infra="clr-namespace:Bible.Infrastructure"
     x:Class="Bible.App">
 	    <Application.Resources>
+            <!--Application resources dictionary-->
             <ResourceDictionary>
-                <infra:InstanceLocator x:Key="Locator"/>
-            </ResourceDictionary>
+
+            <!--Parameters-->
+            <infra:InstanceLocator x:Key="Locator"/>
+
+                <!--Parameters-->
+               <x:String x:Key="APISecurity">http://landsapi1.azurewebsites.net</x:String>
+        </ResourceDictionary>
+            
 		</Application.Resources>
 </Application>

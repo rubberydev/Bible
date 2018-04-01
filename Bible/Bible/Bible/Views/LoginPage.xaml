@@ -75,15 +75,18 @@
                     VerticalOptions="CenterAndExpand">
                     <Button
                         BackgroundColor="DeepSkyBlue" 
-                        HorizontalOptions="FillAndExpand"
-                        Text="Login"
                         Command="{Binding LoginCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Login"                        
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="WhiteSmoke">
                     </Button>
                     <Button                
                         BackgroundColor="DarkSeaGreen" 
+                        Command="{Binding SignUpCommand}"
                         HorizontalOptions="FillAndExpand"
                         Text="Sign Up"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="WhiteSmoke">
                     </Button>
                 </StackLayout>
@@ -96,11 +99,11 @@
                        WidthRequest="100">
                     </Image>
                     <Image
-                       Source="twiter_logo"                       
-                       WidthRequest="85">
+                       Source="twitter_logo"                       
+                       WidthRequest="100">
                     </Image>
                     <Image
-                        Source="linkedin_logo"
+                        Source="instagram_logo"
                         WidthRequest="100">
                     </Image>
                 </StackLayout>           

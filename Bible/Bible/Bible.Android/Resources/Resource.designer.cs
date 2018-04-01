@@ -2192,26 +2192,26 @@ namespace Bible.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020117
-			public const int avd_hide_password_1 = 2130837783;
-			
 			// aapt resource value: 0x7f020118
-			public const int avd_hide_password_2 = 2130837784;
+			public const int avd_hide_password_1 = 2130837784;
 			
 			// aapt resource value: 0x7f020119
-			public const int avd_hide_password_3 = 2130837785;
+			public const int avd_hide_password_2 = 2130837785;
+			
+			// aapt resource value: 0x7f02011a
+			public const int avd_hide_password_3 = 2130837786;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02011a
-			public const int avd_show_password_1 = 2130837786;
-			
 			// aapt resource value: 0x7f02011b
-			public const int avd_show_password_2 = 2130837787;
+			public const int avd_show_password_1 = 2130837787;
 			
 			// aapt resource value: 0x7f02011c
-			public const int avd_show_password_3 = 2130837788;
+			public const int avd_show_password_2 = 2130837788;
+			
+			// aapt resource value: 0x7f02011d
+			public const int avd_show_password_3 = 2130837789;
 			
 			// aapt resource value: 0x7f020055
 			public const int Bible = 2130837589;
@@ -2691,7 +2691,7 @@ namespace Bible.Droid
 			public const int IconBible = 2130837747;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int linkedin_logo = 2130837748;
+			public const int instagram_logo = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
 			public const int mr_button_connected_dark = 2130837749;
@@ -2757,43 +2757,46 @@ namespace Bible.Droid
 			public const int navigation_empty_icon = 2130837769;
 			
 			// aapt resource value: 0x7f02010a
-			public const int notification_action_background = 2130837770;
+			public const int no_image = 2130837770;
 			
 			// aapt resource value: 0x7f02010b
-			public const int notification_bg = 2130837771;
+			public const int notification_action_background = 2130837771;
 			
 			// aapt resource value: 0x7f02010c
-			public const int notification_bg_low = 2130837772;
+			public const int notification_bg = 2130837772;
 			
 			// aapt resource value: 0x7f02010d
-			public const int notification_bg_low_normal = 2130837773;
+			public const int notification_bg_low = 2130837773;
 			
 			// aapt resource value: 0x7f02010e
-			public const int notification_bg_low_pressed = 2130837774;
+			public const int notification_bg_low_normal = 2130837774;
 			
 			// aapt resource value: 0x7f02010f
-			public const int notification_bg_normal = 2130837775;
+			public const int notification_bg_low_pressed = 2130837775;
 			
 			// aapt resource value: 0x7f020110
-			public const int notification_bg_normal_pressed = 2130837776;
+			public const int notification_bg_normal = 2130837776;
 			
 			// aapt resource value: 0x7f020111
-			public const int notification_icon_background = 2130837777;
-			
-			// aapt resource value: 0x7f020115
-			public const int notification_template_icon_bg = 2130837781;
-			
-			// aapt resource value: 0x7f020116
-			public const int notification_template_icon_low_bg = 2130837782;
+			public const int notification_bg_normal_pressed = 2130837777;
 			
 			// aapt resource value: 0x7f020112
-			public const int notification_tile_bg = 2130837778;
+			public const int notification_icon_background = 2130837778;
+			
+			// aapt resource value: 0x7f020116
+			public const int notification_template_icon_bg = 2130837782;
+			
+			// aapt resource value: 0x7f020117
+			public const int notification_template_icon_low_bg = 2130837783;
 			
 			// aapt resource value: 0x7f020113
-			public const int notify_panel_notification_icon_bg = 2130837779;
+			public const int notification_tile_bg = 2130837779;
 			
 			// aapt resource value: 0x7f020114
-			public const int twiter_logo = 2130837780;
+			public const int notify_panel_notification_icon_bg = 2130837780;
+			
+			// aapt resource value: 0x7f020115
+			public const int twitter_logo = 2130837781;
 			
 			static Drawable()
 			{

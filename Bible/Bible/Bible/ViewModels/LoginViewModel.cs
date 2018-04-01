@@ -6,6 +6,7 @@
     using Xamarin.Forms;
     using Services;
     using Helpers;
+    using System;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -76,6 +77,21 @@
                 return new RelayCommand(Login);
             }
 
+        }
+        
+        public ICommand SignUpCommand
+        {
+            get
+            {
+                return new RelayCommand(SignUp);
+            }
+
+        }
+
+        private async void SignUp()
+        {
+            MainViewModel.GetInstance().SingUp = new SingUpViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new SingUpPage());
         }
 
         private async void Login()
