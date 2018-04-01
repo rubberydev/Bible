@@ -108,6 +108,9 @@
                     <Image
                         Source="instagram_logo"
                         WidthRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoginInstagramCommand}"/>
+                        </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>           
            </StackLayout>

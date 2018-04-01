@@ -1,12 +1,12 @@
 ﻿namespace Bible.ViewModels
 {
-    using Views;
+    
     using GalaSoft.MvvmLight.Command;
-    using System.Windows.Input;
-    using Xamarin.Forms;
-    using Services;
     using Helpers;
-    using System;
+    using Services;
+    using System.Windows.Input;
+    using Views;
+    using Xamarin.Forms;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -71,6 +71,20 @@
         #endregion
 
         #region Commands
+        public ICommand LoginInstagramCommand
+        {
+            get
+            {
+                return new RelayCommand(LoginInstagram);
+            }
+        }
+
+        private async void LoginInstagram()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(
+                    new LoginInstagramPage());
+        }
+
         public ICommand LoginFacebookComand
         {
             get

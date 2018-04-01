@@ -73,6 +73,58 @@
 
 
         }
+
+        public static Action HideLoginView_
+        {
+            get
+            {
+                return new Action(() => App.Current.MainPage = 
+                                  new NavigationPage(new LoginPage()));
+            }
+        }
+        public static void NavigateToProfile<T>(T profile, string socialNetwork)
+        {
+            switch (socialNetwork)
+            {
+                case "Instagram":
+                    //En este objeto tenemos todos los datos del usuario
+                    InstagramResponse ResponseSocialNetwork = profile as InstagramResponse;  
+                    
+                    if(ResponseSocialNetwork == null)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new LoginPage());
+                        return;
+                    }
+
+                    var user = new User
+                    {
+                        FirstName = ResponseSocialNetwork.UserData.FullName,
+                        ImagePath = ResponseSocialNetwork.UserData.ProfilePicture,
+                        UserTypeId = 2,
+                        Email = "",
+                        Telephone = "",
+                        Password = ""
+                       
+                    };
+
+                    var dataService = new DataService();
+                    User userLocal = null;
+                    if (user != null)
+                    {
+                        userLocal = Converter.ToUserLocal(user);
+                        dataService.DeleteAllAndInsert(userLocal);
+                    }
+
+                    var mainViewModel = MainViewModel.GetInstance();                    
+                    mainViewModel.User = userLocal;
+                    Settings.IsRemembered = "true";
+
+                    mainViewModel.Bibles = new BiblesViewModel();
+                    Application.Current.MainPage = new MasterPage();
+                    break;
+            }             
+        }
+
         #endregion
 
         #region Methods

@@ -109,7 +109,7 @@
             }
         }
 
-        public async Task<Models.FacebookResponse> GetFacebook(string accessToken)
+        public async Task<FacebookResponse> GetFacebook(string accessToken)
         {
             var requestUrl = "https://graph.facebook.com/v2.8/me/?fields=name," +
                 "picture.width(999),cover,age_range,devices,email,gender," +
@@ -121,6 +121,14 @@
             var facebookResponse =
                 JsonConvert.DeserializeObject<Models.FacebookResponse>(userJson);
             return facebookResponse;
+        }
+
+        public  async Task<InstagramResponse> GetInstagram(string accessToken)
+        {
+            var client = new HttpClient();
+            var userJson = await client.GetStringAsync(accessToken);
+            var InstagramJson =  JsonConvert.DeserializeObject<InstagramResponse>(userJson);
+            return InstagramJson;
         }
 
         public async Task<TokenResponse> LoginFacebook(

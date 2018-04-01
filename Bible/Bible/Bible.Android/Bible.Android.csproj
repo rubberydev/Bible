@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\Config.cs" />
+    <Compile Include="Implementations\LoginInstagramPageRenderer.cs" />
     <Compile Include="Implementations\PageRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -179,6 +180,9 @@
       <Project>{594916d4-ea63-4f70-a470-888644fbe10e}</Project>
       <Name>Bible</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\instagram_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
