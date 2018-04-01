@@ -158,10 +158,11 @@
                 {
                     this.IsEnabledPrev = false;
                 }
-            }            
+            }
 
+            var apiBibles = Application.Current.Resources["APIbibles"].ToString();
             var response = await this.apiService.Get<ContentResponse>(
-                "http://api.biblesupersearch.com",
+                apiBibles,
                 "/api",
                 string.Format(
                     "?bible={0}&reference={1}",

@@ -1,5 +1,6 @@
 ﻿namespace Bible.ViewModels
 {
+    using Bible.Helpers;
     using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
@@ -95,8 +96,9 @@
                 return;
             }
 
+            var apiBibles = Application.Current.Resources["APIbibles"].ToString();
             var response = await this.apiService.Get<BookResponse>(
-                "http://api.biblesupersearch.com",
+                apiBibles,
                 "/api",
                 string.Format("/books?language={0}", bible.LangShort));
 
@@ -114,7 +116,7 @@
             if (bible.LangShort != "en")
             {
                 var response2 = await this.apiService.Get<BookResponse>(
-                    "http://api.biblesupersearch.com",
+                    apiBibles,
                     "/api",
                     "/books?language=en");
 
@@ -181,7 +183,8 @@
 
                 }
 
-                if (this.Reg_exp(this.VersesParameter)) {
+                if(RegexUtilities.Reg_exp(this.VersesParameter))
+                {                 
                     IsRunnning = false;
 
                     await Application.Current.MainPage.DisplayAlert(
@@ -192,8 +195,9 @@
                     return;
                 }
 
+                var apiBibles = Application.Current.Resources["APIbibles"].ToString();
                 var response = await this.apiService.Get<ContentResponse>(
-                               "http://api.biblesupersearch.com",
+                               apiBibles,
                                "/api",
                                string.Format(
                                    "?bible={0}&reference={1}",
@@ -275,17 +279,8 @@
                     "you must select a book ",
                     "Got it !!");
                 return;
-            }
-
-            
-        } 
-
-        private bool Reg_exp(string fieldValue)
-        {            
-            string reg_exp = @"[^\d\:\-]";
-            Regex auxRegex = new Regex(reg_exp);            
-            return auxRegex.IsMatch(fieldValue);
-        }
+            }            
+        }         
         #endregion
     }
 }

@@ -58,8 +58,9 @@
                 return;
             }
 
+            var apiBibles = Application.Current.Resources["APIbibles"].ToString();
             var response = await this.apiService.Get<BibleResponse>(
-                "http://api.biblesupersearch.com",
+                apiBibles,
                 "/api",
                 "/bibles");
 

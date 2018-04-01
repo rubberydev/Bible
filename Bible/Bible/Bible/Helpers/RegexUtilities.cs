@@ -24,5 +24,12 @@
                 return false;
             }
         }
+
+        public static bool Reg_exp(string fieldValue)
+        {
+            string reg_exp = @"[^\d\:\-]";
+            Regex auxRegex = new Regex(reg_exp);
+            return auxRegex.IsMatch(fieldValue);
+        }
     }
 }

@@ -132,8 +132,9 @@
                 return;
             }
 
+            var JWTservice = Application.Current.Resources["JSONwebToken"].ToString();
             var token = await this.apiService.GetToken(
-                "http://LandsAPI1.azurewebsites.net/Token",
+                JWTservice,
                 this.Email,
                 this.Password);
 

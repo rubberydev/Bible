@@ -12,7 +12,9 @@
             <infra:InstanceLocator x:Key="Locator"/>
 
                 <!--Parameters-->
-               <x:String x:Key="APISecurity">http://landsapi1.azurewebsites.net</x:String>
+            <x:String x:Key="JSONwebToken">http://LandsAPI1.azurewebsites.net/Token</x:String>            
+            <x:String x:Key="APIbibles">http://api.biblesupersearch.com</x:String>
+            <x:String x:Key="APISecurity">http://landsapi1.azurewebsites.net</x:String>
         </ResourceDictionary>
             
 		</Application.Resources>

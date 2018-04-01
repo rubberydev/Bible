@@ -1,6 +1,5 @@
 ﻿namespace Bible.ViewModels
-{
-    
+{   
     using System.Windows.Input;
     using Models;
     using GalaSoft.MvvmLight.Command;
@@ -118,8 +117,8 @@
             if (string.IsNullOrEmpty(this.FirstName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.FirstNameValidation",
+                    "Error",
+                    "you must type names...",
                     "Got it !!");
                 return;
             }
@@ -127,8 +126,8 @@
             if (string.IsNullOrEmpty(this.LastName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.LastNameValidation",
+                    "Error",
+                    "you must type last names...",
                      "Got it !!");
                 return;
             }
@@ -136,8 +135,8 @@
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.EmailValidation",
+                    "Error",
+                    "you must type an email...",
                      "Got it !!");
                 return;
             }
@@ -145,8 +144,8 @@
             if (!RegexUtilities.IsValidEmail(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.EmailValidation2",
+                    "Error",
+                    "you must enter an email valid..",
                      "Got it !!");
                 return;
             }
@@ -154,8 +153,8 @@
             if (string.IsNullOrEmpty(this.Telephone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.PhoneValidation",
+                    "Error",
+                    "you must enter a telephone number...",
                      "Got it !!");
                 return;
             }
@@ -163,8 +162,8 @@
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.PasswordValidation",
+                    "Error",
+                    "you must enter a password",
                      "Got it !!");
                 return;
             }
@@ -172,8 +171,8 @@
             if (this.Password.Length < 6)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.PasswordValidation2",
+                    "Error",
+                    "you password must contain at least six characters...",
                      "Got it !!");
                 return;
             }
@@ -181,8 +180,8 @@
             if (string.IsNullOrEmpty(this.Confirm))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.ConfirmValidation",
+                    "Error",
+                    "you must confirm password",
                      "Got it !!");
                 return;
             }
@@ -190,8 +189,8 @@
             if (this.Password != this.Confirm)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "Languages.ConfirmValidation2",
+                    "Error",
+                    "both keys must match...",
                      "Got it !!");
                 return;
             }

@@ -96,8 +96,9 @@
                 return;
             }
 
+            var apiBibles = Application.Current.Resources["APIbibles"].ToString();
             var response = await this.apiService.Get<BookResponse>(
-                "http://api.biblesupersearch.com",
+                apiBibles,
                 "/api",
                 string.Format("/books?language={0}", bible.LangShort));
 
@@ -115,7 +116,7 @@
             if (bible.LangShort != "en")
             {
                 var response2 = await this.apiService.Get<BookResponse>(
-                    "http://api.biblesupersearch.com",
+                    apiBibles,
                     "/api",
                     "/books?language=en");
 
@@ -178,14 +179,15 @@
             
             try
             {
+                var apiBibles = Application.Current.Resources["APIbibles"].ToString();
                 var response = await this.apiService.Get<ContentResponse_>(
-                                              "http://api.biblesupersearch.com",
-                                              "/api",
-                                              string.Format(
-                                                  "?bible={0}&reference={1}&search={2}",
-                                                  MainViewModel.GetInstance().SelectedModule,
-                                                  this.SelectedItemBook.Shortname,
-                                                  this.KeyWordParameter));
+                        apiBibles,
+                        "/api",
+                        string.Format(
+                        "?bible={0}&reference={1}&search={2}",
+                        MainViewModel.GetInstance().SelectedModule,
+                        this.SelectedItemBook.Shortname,
+                        this.KeyWordParameter));
 
                 if (!response.IsSuccess)
                 {
@@ -248,10 +250,10 @@
 
             }
             catch
-            {               
-
+            {
+                var apiBibles = Application.Current.Resources["APIbibles"].ToString();
                 var response = await this.apiService.Get<ContentResponse_>(
-                             "http://api.biblesupersearch.com",
+                             apiBibles,
                              "/api",
                              string.Format(
                                  "?bible={0}&search={1}",
