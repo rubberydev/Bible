@@ -89,6 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Implementations\Config.cs" />
+    <Compile Include="Implementations\Localize.cs" />
     <Compile Include="Implementations\LoginInstagramPageRenderer.cs" />
     <Compile Include="Implementations\LoginPageRenderer.cs" />
     <Compile Include="Main.cs" />
