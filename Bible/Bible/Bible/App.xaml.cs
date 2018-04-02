@@ -65,13 +65,7 @@
                 {
                     this.MainPage = new NavigationPage(new LoginPage());
                 }
-            }
-            else
-            {
-                this.MainPage = new NavigationPage(new LoginPage());
-            }
-
-
+            }          
         }
 
         public static Action HideLoginView_
