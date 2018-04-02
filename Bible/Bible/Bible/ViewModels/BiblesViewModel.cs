@@ -1,11 +1,13 @@
 ﻿namespace Bible.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
     using Helpers;
     using Models;
     using Services;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class BiblesViewModel : BaseViewModel
@@ -42,6 +44,14 @@
         }
 
         #endregion
+
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(LoadBibles);
+            }
+        }
 
         #region Methods
         private async void LoadBibles()
