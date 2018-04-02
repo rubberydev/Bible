@@ -52,7 +52,10 @@
 	<string>Bible</string>
 	<key>CFBundleLocalizations</key>
 	<array>
-		<string>es</string>		
+		<string>es</string>
+		<string>fr</string>	
+		<string>pt</string>	
+		<string>it</string>			
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

@@ -15,7 +15,7 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 TextColor="Black"
-                Text="Result of search">
+                Text="{i18n:Translate ResultSearch}">
             </Label>
             <ListView                 
                 HasUnevenRows="true"                 

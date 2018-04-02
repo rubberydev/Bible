@@ -118,64 +118,85 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Accept" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Aceitar</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
-    <value>Busqueda avanzada</value>
+    <value>Busca avançada</value>
   </data>
   <data name="BeforeChapter" xml:space="preserve">
-    <value>Capitulo anterior</value>
+    <value>Capítulo anterior</value>
   </data>
   <data name="Bibles" xml:space="preserve">
-    <value>Biblias</value>
+    <value>Bíblias</value>
   </data>
   <data name="BibleTitle" xml:space="preserve">
-    <value>Versiones biblicas</value>
+    <value>Versões Bíblicas</value>
   </data>
   <data name="Book" xml:space="preserve">
-    <value>Libro</value>
+    <value>Livro</value>
   </data>
   <data name="Books" xml:space="preserve">
-    <value>Libros</value>
+    <value>Livros</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
   </data>
   <data name="ChangeImage" xml:space="preserve">
-    <value>Cambiar Imagen</value>
+    <value>Alterar imagem</value>
   </data>
   <data name="Chapter" xml:space="preserve">
-    <value>Capitulo</value>
+    <value>Capítulos</value>
   </data>
   <data name="ChapterVerses" xml:space="preserve">
-    <value>Capitulo y versiculo</value>
+    <value>Capítulo e verso</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirmar</value>
   </data>
   <data name="ConfirmPass" xml:space="preserve">
-    <value>Confirmar su password</value>
+    <value>Confirme sua senha</value>
+  </data>
+  <data name="Congratulation" xml:space="preserve">
+    <value>Parabéns</value>
   </data>
   <data name="EmailPlace" xml:space="preserve">
-    <value>Digite su email</value>
+    <value>Digite seu email</value>
   </data>
   <data name="EmailValidation" xml:space="preserve">
-    <value>Debes ingresar un email</value>
+    <value>Você deve digitar um email</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Erro</value>
   </data>
   <data name="Example" xml:space="preserve">
     <value>Ej 1:3-10</value>
   </data>
   <data name="Example2" xml:space="preserve">
-    <value>digite palabra clave Ej: amor </value>
+    <value>digite palavra-chave Ex: amor</value>
   </data>
   <data name="ForgotPass" xml:space="preserve">
-    <value>Olvido su contraseña?</value>
+    <value>Esqueceu sua senha?</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Da câmera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Da galeria</value>
+  </data>
+  <data name="InternetValidation" xml:space="preserve">
+    <value>Você deve ter uma conexão com a internet ...</value>
+  </data>
+  <data name="KeysMatch" xml:space="preserve">
+    <value>ambas as senhas devem corresponder</value>
   </data>
   <data name="KeyWord" xml:space="preserve">
-    <value>Palabra clave *</value>
+    <value>Palavra chave *</value>
   </data>
   <data name="LastNames" xml:space="preserve">
-    <value>Apellidos</value>
+    <value>Apelido</value>
+  </data>
+  <data name="LocationImage" xml:space="preserve">
+    <value>Onde você quer tirar a foto?</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -186,124 +207,103 @@
   <data name="LoginInstagram" xml:space="preserve">
     <value>Instagram Login</value>
   </data>
-  <data name="Menu" xml:space="preserve">
-    <value>Menu</value>
-  </data>
-  <data name="Names" xml:space="preserve">
-    <value>Nombres</value>
-  </data>
-  <data name="NextChapter" xml:space="preserve">
-    <value>Proximo capitulo</value>
-  </data>
-  <data name="PlaceLastNam" xml:space="preserve">
-    <value>Digite sus apellidos</value>
-  </data>
-  <data name="PlaceNames" xml:space="preserve">
-    <value>Digite sus nombres</value>
-  </data>
-  <data name="PlacePass" xml:space="preserve">
-    <value>Digite su password</value>
-  </data>
-  <data name="PlacePhone" xml:space="preserve">
-    <value>Digite su telefono</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Registrar</value>
-  </data>
-  <data name="Rememberme" xml:space="preserve">
-    <value>Recordarme </value>
-  </data>
-  <data name="ResultSearch" xml:space="preserve">
-    <value>Resultados de la busqueda</value>
-  </data>
-  <data name="SearchButton" xml:space="preserve">
-    <value>Buscar</value>
-  </data>
-  <data name="SearchByKeyword" xml:space="preserve">
-    <value>Busqueda palabra clave</value>
-  </data>
-  <data name="SearchByVerse" xml:space="preserve">
-    <value>Busqueda por versiculo</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>Registrarse</value>
-  </data>
-  <data name="Telephone" xml:space="preserve">
-    <value>Telefono</value>
-  </data>
-  <data name="Verses" xml:space="preserve">
-    <value>Versiculos</value>
-  </data>
-  <data name="Congratulation" xml:space="preserve">
-    <value>Felicitaciones</value>
-  </data>
-  <data name="InternetValidation" xml:space="preserve">
-    <value>Debes tener conexxion a internet...</value>
-  </data>
   <data name="LogOut" xml:space="preserve">
-    <value>Salir</value>
+    <value>Sair</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menù</value>
   </data>
   <data name="MenuHambSearch1" xml:space="preserve">
-    <value>Busqueda avanzada</value>
+    <value>Busca avançada</value>
   </data>
   <data name="MenuHambSearch2" xml:space="preserve">
-    <value>Busqueda palabra clave</value>
+    <value>Pesquisar palavra-chave</value>
+  </data>
+  <data name="Names" xml:space="preserve">
+    <value>Nomes</value>
+  </data>
+  <data name="NextChapter" xml:space="preserve">
+    <value>Próximo capítulo</value>
+  </data>
+  <data name="PlaceLastNam" xml:space="preserve">
+    <value>Digite seus sobrenomes</value>
+  </data>
+  <data name="PlaceNames" xml:space="preserve">
+    <value>Digite seus nomes</value>
+  </data>
+  <data name="PlacePass" xml:space="preserve">
+    <value>Digite sua senha</value>
+  </data>
+  <data name="PlacePhone" xml:space="preserve">
+    <value>Digite seu telefone</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Cadastre-se</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Lembra de mim</value>
   </data>
   <data name="RequiredKeyword" xml:space="preserve">
-    <value>La palabra clave es requerida</value>
+    <value>A palavra-chave é obrigatória</value>
+  </data>
+  <data name="ResultSearch" xml:space="preserve">
+    <value>Resultados da pesquisa</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Pesquisar</value>
+  </data>
+  <data name="SearchByKeyword" xml:space="preserve">
+    <value>Pesquisar palavra-chave</value>
+  </data>
+  <data name="SearchByVerse" xml:space="preserve">
+    <value>Pesquisar por verso</value>
   </data>
   <data name="SelectBook" xml:space="preserve">
-    <value>Seleccione un libro</value>
+    <value>Selecione um livro</value>
   </data>
-  <data name="SomethingWrong" xml:space="preserve">
-    <value>Algo ha salido mal, intenta de nuevo...</value>
-  </data>
-  <data name="ValidationPassword" xml:space="preserve">
-    <value>Debes ingresar una contraseña...</value>
-  </data>
-  <data name="ValidFormat" xml:space="preserve">
-    <value>Debe buscar en el siguiente formato Capitulo: versiculo inicio- versiculo final</value>
-  </data>
-  <data name="ValidVerses" xml:space="preserve">
-    <value>Este campo debe contener al menos 3 digitos y los caracteres : -</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="FromCamera" xml:space="preserve">
-    <value>Desde la camara</value>
-  </data>
-  <data name="FromGallery" xml:space="preserve">
-    <value>Desde la galeria</value>
-  </data>
-  <data name="KeysMatch" xml:space="preserve">
-    <value>ambas contraseñas deben de coincidir</value>
+  <data name="SignUp" xml:space="preserve">
+    <value>Cadastre-se</value>
   </data>
   <data name="SixCharacterPass" xml:space="preserve">
-    <value>su contraseña debe contener al menos seis digitos</value>
+    <value>sua senha deve conter pelo menos seis dígitos</value>
+  </data>
+  <data name="SomethingWrong" xml:space="preserve">
+    <value>Algo deu errado, tente novamente ...</value>
   </data>
   <data name="SuccessRegister" xml:space="preserve">
-    <value>Usuario registrado satisfactoriamente ahora puede entrar con su clave y email</value>
+    <value>Usuário registrado com sucesso agora pode entrar com sua senha e email</value>
   </data>
-  <data name="LocationImage" xml:space="preserve">
-    <value>Donde quiere tomar la imagen?</value>
+  <data name="Telephone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="ValidationPassword" xml:space="preserve">
+    <value>Você deve digitar uma senha ...</value>
+  </data>
+  <data name="ValidFormat" xml:space="preserve">
+    <value>Você deve procurar no seguinte formato Capítulo: versículo começando- final verso</value>
+  </data>
+  <data name="ValidVerses" xml:space="preserve">
+    <value>Este campo deve conter pelo menos 3 dígitos e os caracteres:</value>
+  </data>
+  <data name="Verses" xml:space="preserve">
+    <value>Versos</value>
   </data>
   <data name="TypeConfirmPass" xml:space="preserve">
-    <value>Debe confirmar el password</value>
+    <value>Vous devez confirmer le mot de passe</value>
   </data>
   <data name="TypeEmail" xml:space="preserve">
-    <value>Digite un email...</value>
+    <value>Digite um email ...</value>
   </data>
   <data name="TypeEmailValid" xml:space="preserve">
-    <value>usted debe ingresar un email valido...</value>
+    <value>você deve digitar um email válido ...</value>
   </data>
   <data name="TypeLastNames" xml:space="preserve">
-    <value>por favor digite sus apellidos...</value>
+    <value>veuillez taper vos noms de famille ...</value>
   </data>
   <data name="TypeNames" xml:space="preserve">
-    <value>por favor digite sus nombres...</value>
+    <value>por favor digite seus sobrenomes ...</value>
   </data>
   <data name="TypePhoneNumber" xml:space="preserve">
-    <value>Usted debe ingresar el numero de telefono...</value>
+    <value>por favor digite seus nomes ...</value>
   </data>
 </root>

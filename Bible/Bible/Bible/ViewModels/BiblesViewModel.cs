@@ -45,13 +45,15 @@
 
         #endregion
 
+        #region Commands
         public ICommand RefreshCommand
         {
             get
             {
                 return new RelayCommand(LoadBibles);
             }
-        }
+        } 
+        #endregion
 
         #region Methods
         private async void LoadBibles()
