@@ -1,5 +1,6 @@
 ﻿namespace Bible.ViewModels
 {
+    using Helpers;
     using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
@@ -90,9 +91,9 @@
             if (!connection.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -105,9 +106,9 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -123,9 +124,9 @@
                 if (!response2.IsSuccess)
                 {
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response2.Message,
-                        "Got it !!");
+                        Languages.Accept);
                     return;
                 }
 
@@ -160,9 +161,9 @@
             {
                 this.IsRunnning = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -170,9 +171,9 @@
             {
                 this.IsRunnning = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Sorry",
-                    "The keyword is required, try again",
-                    "Got it !!!");
+                    Languages.Error,
+                    Languages.RequiredKeyword,
+                    Languages.Accept);
                 return;
 
             }
@@ -193,9 +194,9 @@
                 {
                     this.IsRunnning = false;
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response.Message,
-                        "Got it !!"
+                        Languages.Accept
                         );
                     return;
                 }
@@ -263,9 +264,9 @@
                 if (!response.IsSuccess)
                 {
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response.Message,
-                        "Got it !!"
+                        Languages.Accept
                         );
                     return;
                 }

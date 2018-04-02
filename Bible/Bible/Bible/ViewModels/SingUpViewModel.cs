@@ -117,81 +117,81 @@
             if (string.IsNullOrEmpty(this.FirstName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must type names...",
-                    "Got it !!");
+                    Languages.Error,
+                    Languages.TypeNames,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.LastName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must type last names...",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.TypeLastNames,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must type an email...",
-                     "Got it !!");
+                     Languages.Error,
+                     Languages.TypeEmail,
+                     Languages.Accept);
                 return;
             }
 
             if (!RegexUtilities.IsValidEmail(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must enter an email valid..",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.TypeEmailValid,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Telephone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must enter a telephone number...",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.TypePhoneNumber,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must enter a password",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.ValidationPassword,
+                    Languages.Accept);
                 return;
             }
 
             if (this.Password.Length < 6)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you password must contain at least six characters...",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.SixCharacterPass,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Confirm))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "you must confirm password",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.TypeConfirmPass,
+                     Languages.Accept);
                 return;
             }
 
             if (this.Password != this.Confirm)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "both keys must match...",
-                     "Got it !!");
+                    Languages.Error,
+                    Languages.KeysMatch,
+                    Languages.Accept);
                 return;
             }
 
@@ -204,9 +204,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
-                    "checkConnetion.Message",
-                     "Got it !!");
+                    Languages.Error,
+                    checkConnetion.Message,
+                     Languages.Accept);
                 return;
             }
 
@@ -239,9 +239,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                     "Got it !!");
+                     Languages.Accept);
                 return;
             }
 
@@ -249,9 +249,9 @@
             this.IsEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
-                "Congratulation",
-                "User has been registered sucessfully, already you can enter to application with this password and email",
-                "Got it !!");
+                Languages.Congratulation,
+                Languages.SuccessRegister,
+                Languages.Accept);
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
@@ -265,19 +265,19 @@
                 CrossMedia.Current.IsTakePhotoSupported)
             {
                 var source = await Application.Current.MainPage.DisplayActionSheet(
-                    "Where do you want to take the image?",
-                    "Cancel",
+                    Languages.LocationImage,
+                    Languages.Cancel,
                     null,
-                    "From Gallery",
-                    "From Camera");
+                    Languages.FromGallery,
+                    Languages.FromCamera);
 
-                if (source == "Cancel")
+                if (source == Languages.Cancel)
                 {
                     this.file = null;
                     return;
                 }
 
-                if (source == "From Camera")
+                if (source == Languages.FromCamera)
                 {
                     this.file = await CrossMedia.Current.TakePhotoAsync(
                         new StoreCameraMediaOptions

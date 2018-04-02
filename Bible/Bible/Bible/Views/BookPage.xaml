@@ -2,9 +2,10 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:i18n="clr-namespace:Bible.Helpers"
     x:Class="Bible.Views.BookPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Verses">
+    Title="{i18n:Translate Verses}">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Book}"
@@ -29,7 +30,7 @@
                                     <Label
                                         FontAttributes="Bold"
                                         TextColor="Black"
-                                        Text="Chapter">                                    
+                                        Text="{i18n:Translate Chapter}">                                    
                                     </Label>
                                     <Label
                                         FontAttributes="Bold"
@@ -62,7 +63,7 @@
                 Command="{Binding prevChapterCommand}"
                 IsEnabled="{Binding IsEnabledPrev, Mode=TwoWay}"
                 HorizontalOptions="FillAndExpand"
-                Text="Before chapter"                
+                Text="{i18n:Translate BeforeChapter}"                
                 TextColor="WhiteSmoke">
             </Button>
             <Button                
@@ -70,7 +71,7 @@
                 Command="{Binding NextChapterCommand}"
                 HorizontalOptions="FillAndExpand"
                 IsEnabled="{Binding IsEnabledNext, Mode=TwoWay}"
-                Text="Next chapter"
+                Text="{i18n:Translate NextChapter}"
                 TextColor="WhiteSmoke">
             </Button>
            </StackLayout>

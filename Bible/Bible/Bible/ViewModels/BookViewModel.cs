@@ -4,6 +4,7 @@
     using Models;
     using Services;
     using System;
+    using Helpers;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -114,9 +115,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Accept");
+                    Languages.Error);
                 return;
             }
 
@@ -178,9 +179,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 

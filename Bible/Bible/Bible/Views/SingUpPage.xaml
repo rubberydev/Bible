@@ -2,10 +2,11 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:i18n="clr-namespace:Bible.Helpers"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
     x:Class="Bible.Views.SingUpPage"
-    Title="Sing Up">
+    Title="{i18n:Translate SignUp}">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding SingUp}">
@@ -22,7 +23,7 @@
                 <Label 
                     HorizontalOptions="Center" 
                     FontSize="Small" 
-                    Text="ChangeImage" 
+                    Text="{i18n:Translate ChangeImage}" 
                     TextColor="Black">
                 </Label>
                 <ActivityIndicator
@@ -37,14 +38,14 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="0" 
-                        Text="Names" 
+                        Text="{i18n:Translate Names}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
                     <Entry 
                         Grid.Column="1" 
                         Grid.Row="0" 
-                        Placeholder="Type your names..." 
+                        Placeholder="{i18n:Translate PlaceNames}" 
                         TextColor="Black" 
                         Text="{Binding FirstName, Mode=TwoWay}">
                     </Entry>
@@ -52,14 +53,14 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="1" 
-                        Text="Last names" 
+                        Text="{i18n:Translate LastNames}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
                     <Entry 
                         Grid.Column="1" 
                         Grid.Row="1" 
-                        Placeholder="Type your last names..." 
+                        Placeholder="{i18n:Translate PlaceLastNam}" 
                         TextColor="Black" 
                         Text="{Binding LastName, Mode=TwoWay}">
                     </Entry>
@@ -67,7 +68,7 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="2" 
-                        Text="Email" 
+                        Text="{i18n:Translate Email}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
@@ -75,7 +76,7 @@
                         Keyboard="Email" 
                         Grid.Column="1" 
                         Grid.Row="2" 
-                        Placeholder="Type your email..." 
+                        Placeholder="{i18n:Translate EmailPlace}" 
                         TextColor="Black" 
                         Text="{Binding Email, Mode=TwoWay}">
                     </Entry>
@@ -83,7 +84,7 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="3" 
-                        Text="Telephone" 
+                        Text="{i18n:Translate Telephone}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
@@ -91,7 +92,7 @@
                         Grid.Column="1" 
                         Grid.Row="3" 
                         Keyboard="Telephone" 
-                        Placeholder="Type your telephone..." 
+                        Placeholder="{i18n:Translate PlacePhone}" 
                         TextColor="Black" 
                         Text="{Binding Telephone, Mode=TwoWay}">
                     </Entry>
@@ -99,7 +100,7 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="4" 
-                        Text="Password" 
+                        Text="{i18n:Translate Password}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
@@ -107,7 +108,7 @@
                         Grid.Column="1" 
                         Grid.Row="4" 
                         IsPassword="true" 
-                        Placeholder="Type your password.." 
+                        Placeholder="{i18n:Translate PlacePass}" 
                         TextColor="Black" 
                         Text="{Binding Password, Mode=TwoWay}">
                     </Entry>
@@ -115,7 +116,7 @@
                         FontAttributes="Bold"
                         Grid.Column="0" 
                         Grid.Row="5" 
-                        Text="Confirm" 
+                        Text="{i18n:Translate Confirm}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
                     </Label>
@@ -123,7 +124,7 @@
                         Grid.Column="1" 
                         Grid.Row="5" 
                         IsPassword="true" 
-                        Placeholder="Confirm your password..." 
+                        Placeholder="{i18n:Translate ConfirmPass}" 
                         TextColor="Black" 
                         Text="{Binding Confirm, Mode=TwoWay}">
                     </Entry>
@@ -138,7 +139,7 @@
                     HeightRequest="46" 
                     IsEnabled="{Binding IsEnabled, Mode=TwoWay}" 
                     Margin="50,0,50,0" 
-                    Text="Register" 
+                    Text="{i18n:Translate Register}" 
                     TextColor="White">
                 </Button>
             </StackLayout>

@@ -30,7 +30,7 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Keyboard="Email"
-                            Placeholder="{i18n:Translate EmailValidation}"
+                            Placeholder="{i18n:Translate EmailPlace}"
                             Text="{Binding Email, Mode=TwoWay}">
                         </Entry>
                         <Label            

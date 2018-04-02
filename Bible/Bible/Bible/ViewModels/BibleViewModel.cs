@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+    using Helpers;
     using Models;
     using Services;
     using Xamarin.Forms;
@@ -53,9 +54,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -69,9 +70,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -88,9 +89,9 @@
                 {
                     this.IsRefreshing = false;
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response2.Message,
-                        "Accept");
+                        Languages.Accept);
                     return;
                 }
 

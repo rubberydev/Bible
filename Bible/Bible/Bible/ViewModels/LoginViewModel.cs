@@ -138,9 +138,9 @@
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "There was an error!!",
-                    "you must enter a password...",
-                    "Ok");
+                    Languages.Error,
+                    Languages.ValidationPassword,
+                    Languages.Accept);
 
                 return;
             }
@@ -154,9 +154,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                                  "There was an error!!",
-                                  "you must connect to internet... " ,
-                                  "Ok");
+                                  Languages.Error,
+                                  Languages.InternetValidation,
+                                  Languages.Accept);
 
                 return;
             }
@@ -172,9 +172,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                                  "Error",
-                                  "Something was wrong, please try again later...",
-                                  "Ok");
+                                  Languages.Error,
+                                  Languages.SomethingWrong,
+                                  Languages.Accept);
                 return;
             }
 
@@ -183,9 +183,9 @@
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                                  "Error",
+                                  Languages.Error,
                                   token.ErrorDescription,
-                                  "Ok");
+                                  Languages.Accept);
                 return;
             }
 

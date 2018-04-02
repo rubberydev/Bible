@@ -3,8 +3,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Bible.Views.SearchByKeywordPage"
+    xmlns:i18n="clr-namespace:Bible.Helpers"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Search by Keyword">
+    Title="{i18n:Translate SearchByKeyword}">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Search_}"
@@ -58,7 +59,7 @@
                         Grid.Row="0"
                         Grid.Column="0"                 
                         TextColor="Black"
-                        Text="Book"
+                        Text="{i18n:Translate Book}"
                         VerticalOptions="Center">
                     </Label>
                     <Picker                        
@@ -68,7 +69,7 @@
                         ItemDisplayBinding="{Binding Name}"                         
                         SelectedItem="{Binding SelectedItemBook}"
                         TextColor="Black"
-                        Title="Select a book">
+                        Title="{i18n:Translate SelectBook}">
                     </Picker>
                     <Label
                         FontAttributes="Bold"                    
@@ -76,13 +77,13 @@
                         Grid.Column="0"                         
                         Margin="5"
                         TextColor="Black"
-                        Text="Keyword *"
+                        Text="{i18n:Translate KeyWord}"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="1"
                         Grid.Column="1"                        
-                        Placeholder="type any keyword e.g heaven"                        
+                        Placeholder="{i18n:Translate Example2}"                        
                         Text="{Binding KeyWordParameter, Mode=TwoWay}">
                     </Entry>
                     <ActivityIndicator
@@ -96,7 +97,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         HorizontalOptions="EndAndExpand"
-                        Text="Search"
+                        Text="{i18n:Translate SearchButton}"
                         Command="{Binding SearchByWordCommand}"
                         TextColor="WhiteSmoke">
                     </Button>

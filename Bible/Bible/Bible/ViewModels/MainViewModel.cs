@@ -1,5 +1,6 @@
 ﻿namespace Bible.ViewModels
 {
+    using Helpers;
     using Models;
     using System;
     using System.Collections.ObjectModel;
@@ -120,21 +121,21 @@
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "ic_search",
-                Title = "Advanced search",
+                Title = Languages.MenuHambSearch1,
                 PageName = "BiblesSearchPage"
             });
 
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "ic_search",
-                Title = "Search by key word",
+                Title = Languages.MenuHambSearch2,
                 PageName = "BiblesSearchWordPage"
             });
 
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "ic_exit_to_app",
-                Title = "Log out",
+                Title = Languages.LogOut,
                 PageName = "LoginPage"
             });
         }

@@ -70,11 +70,119 @@ namespace Bible.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced Search.
+        /// </summary>
+        public static string AdvancedSearch {
+            get {
+                return ResourceManager.GetString("AdvancedSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before chapter.
+        /// </summary>
+        public static string BeforeChapter {
+            get {
+                return ResourceManager.GetString("BeforeChapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bibles.
+        /// </summary>
+        public static string Bibles {
+            get {
+                return ResourceManager.GetString("Bibles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bible versions.
         /// </summary>
         public static string BibleTitle {
             get {
                 return ResourceManager.GetString("BibleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Book.
+        /// </summary>
+        public static string Book {
+            get {
+                return ResourceManager.GetString("Book", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string Books {
+            get {
+                return ResourceManager.GetString("Books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Image.
+        /// </summary>
+        public static string ChangeImage {
+            get {
+                return ResourceManager.GetString("ChangeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chapter.
+        /// </summary>
+        public static string Chapter {
+            get {
+                return ResourceManager.GetString("Chapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chapter and Verses.
+        /// </summary>
+        public static string ChapterVerses {
+            get {
+                return ResourceManager.GetString("ChapterVerses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm your password....
+        /// </summary>
+        public static string ConfirmPass {
+            get {
+                return ResourceManager.GetString("ConfirmPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulation.
+        /// </summary>
+        public static string Congratulation {
+            get {
+                return ResourceManager.GetString("Congratulation", resourceCulture);
             }
         }
         
@@ -115,11 +223,92 @@ namespace Bible.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to e.g 1:3-10.
+        /// </summary>
+        public static string Example {
+            get {
+                return ResourceManager.GetString("Example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to type any keyword e.g heaven.
+        /// </summary>
+        public static string Example2 {
+            get {
+                return ResourceManager.GetString("Example2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         public static string ForgotPass {
             get {
                 return ResourceManager.GetString("ForgotPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From Camera.
+        /// </summary>
+        public static string FromCamera {
+            get {
+                return ResourceManager.GetString("FromCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From Gallery.
+        /// </summary>
+        public static string FromGallery {
+            get {
+                return ResourceManager.GetString("FromGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must connect to internet....
+        /// </summary>
+        public static string InternetValidation {
+            get {
+                return ResourceManager.GetString("InternetValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to both keys must match....
+        /// </summary>
+        public static string KeysMatch {
+            get {
+                return ResourceManager.GetString("KeysMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyword *.
+        /// </summary>
+        public static string KeyWord {
+            get {
+                return ResourceManager.GetString("KeyWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last names.
+        /// </summary>
+        public static string LastNames {
+            get {
+                return ResourceManager.GetString("LastNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where do you want to take the image?.
+        /// </summary>
+        public static string LocationImage {
+            get {
+                return ResourceManager.GetString("LocationImage", resourceCulture);
             }
         }
         
@@ -133,11 +322,101 @@ namespace Bible.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook Login.
+        /// </summary>
+        public static string LoginFacebook {
+            get {
+                return ResourceManager.GetString("LoginFacebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instagram Login.
+        /// </summary>
+        public static string LoginInstagram {
+            get {
+                return ResourceManager.GetString("LoginInstagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced search.
+        /// </summary>
+        public static string MenuHambSearch1 {
+            get {
+                return ResourceManager.GetString("MenuHambSearch1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by key word.
+        /// </summary>
+        public static string MenuHambSearch2 {
+            get {
+                return ResourceManager.GetString("MenuHambSearch2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Names.
+        /// </summary>
+        public static string Names {
+            get {
+                return ResourceManager.GetString("Names", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next chapter.
+        /// </summary>
+        public static string NextChapter {
+            get {
+                return ResourceManager.GetString("NextChapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type your last names....
+        /// </summary>
+        public static string PlaceLastNam {
+            get {
+                return ResourceManager.GetString("PlaceLastNam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type your names....
+        /// </summary>
+        public static string PlaceNames {
+            get {
+                return ResourceManager.GetString("PlaceNames", resourceCulture);
             }
         }
         
@@ -151,6 +430,24 @@ namespace Bible.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type your telephone....
+        /// </summary>
+        public static string PlacePhone {
+            get {
+                return ResourceManager.GetString("PlacePhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rememberme.
         /// </summary>
         public static string Rememberme {
@@ -160,11 +457,191 @@ namespace Bible.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The keyword is required, try again.
+        /// </summary>
+        public static string RequiredKeyword {
+            get {
+                return ResourceManager.GetString("RequiredKeyword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result of search.
+        /// </summary>
+        public static string ResultSearch {
+            get {
+                return ResourceManager.GetString("ResultSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchButton {
+            get {
+                return ResourceManager.GetString("SearchButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by keyword.
+        /// </summary>
+        public static string SearchByKeyword {
+            get {
+                return ResourceManager.GetString("SearchByKeyword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by Verse.
+        /// </summary>
+        public static string SearchByVerse {
+            get {
+                return ResourceManager.GetString("SearchByVerse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Book.
+        /// </summary>
+        public static string SelectBook {
+            get {
+                return ResourceManager.GetString("SelectBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign Up.
         /// </summary>
         public static string SignUp {
             get {
                 return ResourceManager.GetString("SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you password must contain at least six characters....
+        /// </summary>
+        public static string SixCharacterPass {
+            get {
+                return ResourceManager.GetString("SixCharacterPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something was wrong, please try again later....
+        /// </summary>
+        public static string SomethingWrong {
+            get {
+                return ResourceManager.GetString("SomethingWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User has been registered sucessfully, already you can enter to application with this password and email.
+        /// </summary>
+        public static string SuccessRegister {
+            get {
+                return ResourceManager.GetString("SuccessRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telephone.
+        /// </summary>
+        public static string Telephone {
+            get {
+                return ResourceManager.GetString("Telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must confirm password.
+        /// </summary>
+        public static string TypeConfirmPass {
+            get {
+                return ResourceManager.GetString("TypeConfirmPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must type an email....
+        /// </summary>
+        public static string TypeEmail {
+            get {
+                return ResourceManager.GetString("TypeEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must enter an email valid....
+        /// </summary>
+        public static string TypeEmailValid {
+            get {
+                return ResourceManager.GetString("TypeEmailValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must type last names....
+        /// </summary>
+        public static string TypeLastNames {
+            get {
+                return ResourceManager.GetString("TypeLastNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must type names....
+        /// </summary>
+        public static string TypeNames {
+            get {
+                return ResourceManager.GetString("TypeNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must enter a telephone number....
+        /// </summary>
+        public static string TypePhoneNumber {
+            get {
+                return ResourceManager.GetString("TypePhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must enter a password....
+        /// </summary>
+        public static string ValidationPassword {
+            get {
+                return ResourceManager.GetString("ValidationPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you must type search in the following ( format ) chapter: verse start - verse end.
+        /// </summary>
+        public static string ValidFormat {
+            get {
+                return ResourceManager.GetString("ValidFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the field verses should contain at least some of this character: digits : -, it doesn&apos;t allow words or letter....
+        /// </summary>
+        public static string ValidVerses {
+            get {
+                return ResourceManager.GetString("ValidVerses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verses.
+        /// </summary>
+        public static string Verses {
+            get {
+                return ResourceManager.GetString("Verses", resourceCulture);
             }
         }
     }

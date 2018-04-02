@@ -120,8 +120,38 @@
   <data name="Accept" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="AdvancedSearch" xml:space="preserve">
+    <value>Busqueda avanzada</value>
+  </data>
+  <data name="BeforeChapter" xml:space="preserve">
+    <value>Capitulo anterior</value>
+  </data>
+  <data name="Bibles" xml:space="preserve">
+    <value>Biblias</value>
+  </data>
   <data name="BibleTitle" xml:space="preserve">
     <value>Versiones biblicas</value>
+  </data>
+  <data name="Book" xml:space="preserve">
+    <value>Libro</value>
+  </data>
+  <data name="Books" xml:space="preserve">
+    <value>Libros</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Cambiar Imagen</value>
+  </data>
+  <data name="Chapter" xml:space="preserve">
+    <value>Capitulos</value>
+  </data>
+  <data name="ChapterVerses" xml:space="preserve">
+    <value>Capitulo y versiculo</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="ConfirmPass" xml:space="preserve">
+    <value>Confirmar su password</value>
   </data>
   <data name="EmailPlace" xml:space="preserve">
     <value>Digite su email</value>
@@ -132,19 +162,109 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Example" xml:space="preserve">
+    <value>Ej 1:3-10</value>
+  </data>
+  <data name="Example2" xml:space="preserve">
+    <value>digite palabra clave Ej: amor </value>
+  </data>
   <data name="ForgotPass" xml:space="preserve">
     <value>Olvido su contraseña?</value>
+  </data>
+  <data name="KeyWord" xml:space="preserve">
+    <value>Palabra clave *</value>
+  </data>
+  <data name="LastNames" xml:space="preserve">
+    <value>Apellidos</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Facebook Login</value>
+  </data>
+  <data name="LoginInstagram" xml:space="preserve">
+    <value>Instagram Login</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Names" xml:space="preserve">
+    <value>Nombres</value>
+  </data>
+  <data name="NextChapter" xml:space="preserve">
+    <value>Proximo capitulo</value>
+  </data>
+  <data name="PlaceLastNam" xml:space="preserve">
+    <value>Digite sus apellidos</value>
+  </data>
+  <data name="PlaceNames" xml:space="preserve">
+    <value>Digite sus nombres</value>
+  </data>
   <data name="PlacePass" xml:space="preserve">
     <value>Digite su password</value>
+  </data>
+  <data name="PlacePhone" xml:space="preserve">
+    <value>Digite su telefono</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrar</value>
   </data>
   <data name="Rememberme" xml:space="preserve">
     <value>Recordarme </value>
   </data>
+  <data name="ResultSearch" xml:space="preserve">
+    <value>Resultados de la busqueda</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="SearchByKeyword" xml:space="preserve">
+    <value>Busqueda palabra clave</value>
+  </data>
+  <data name="SearchByVerse" xml:space="preserve">
+    <value>Busqueda por versiculo</value>
+  </data>
   <data name="SignUp" xml:space="preserve">
     <value>Registrarse</value>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+  <data name="Verses" xml:space="preserve">
+    <value>Versiculos</value>
+  </data>
+  <data name="Congratulation" xml:space="preserve">
+    <value>Felicitaciones</value>
+  </data>
+  <data name="InternetValidation" xml:space="preserve">
+    <value>Debes tener conexxion a internet...</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="MenuHambSearch1" xml:space="preserve">
+    <value>Busqueda avanzada</value>
+  </data>
+  <data name="MenuHambSearch2" xml:space="preserve">
+    <value>Busqueda palabra clave</value>
+  </data>
+  <data name="RequiredKeyword" xml:space="preserve">
+    <value>La palabra clave es requerida</value>
+  </data>
+  <data name="SelectBook" xml:space="preserve">
+    <value>Seleccione un libro</value>
+  </data>
+  <data name="SomethingWrong" xml:space="preserve">
+    <value>Algo ha salido mal, intenta de nuevo...</value>
+  </data>
+  <data name="ValidationPassword" xml:space="preserve">
+    <value>Debes ingresar una contraseña...</value>
+  </data>
+  <data name="ValidFormat" xml:space="preserve">
+    <value>Debe buscar en el siguiente formato Capitulo: versiculo inicio- versiculo final</value>
+  </data>
+  <data name="ValidVerses" xml:space="preserve">
+    <value>Este campo debe contener al menos 3 digitos y los caracteres : -</value>
   </data>
 </root>

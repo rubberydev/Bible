@@ -1,5 +1,6 @@
 ﻿namespace Bible.ViewModels
 {
+    using Helpers;
     using Models;
     using Services;
     using System.Collections.Generic;
@@ -52,9 +53,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
@@ -68,9 +69,9 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 

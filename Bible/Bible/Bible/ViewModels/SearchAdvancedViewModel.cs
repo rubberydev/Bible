@@ -90,9 +90,9 @@
             if (!connection.IsSuccess)
             {               
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -105,9 +105,9 @@
             if (!response.IsSuccess)
             {               
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -123,9 +123,9 @@
                 if (!response2.IsSuccess)
                 {                    
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response2.Message,
-                        "Got it !!");
+                        Languages.Accept);
                     return;
                 }
 
@@ -161,9 +161,9 @@
             {
                 this.IsRunnning = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Got it !!");
+                    Languages.Accept);
                 return;
             }
 
@@ -175,10 +175,9 @@
                     IsRunnning = false;
 
                     await Application.Current.MainPage.DisplayAlert(
-                      "Sorry...",
-                      "you must type search in the following ( format )\n" +
-                      " chapter: verse start - verse end",
-                      "Got it !!");
+                      Languages.Error,
+                      Languages.ValidFormat,
+                      Languages.Accept);
                     return;
 
                 }
@@ -188,10 +187,9 @@
                     IsRunnning = false;
 
                     await Application.Current.MainPage.DisplayAlert(
-                      "Sorry...",
-                      "the field verses should contain at least some of this character:\n" +
-                      " digits : -, it doesn't allow words or letter...",
-                      "Got it !!");
+                      Languages.Error,
+                      Languages.ValidVerses,
+                      Languages.Accept);
                     return;
                 }
 
@@ -208,9 +206,9 @@
                 {
                     this.IsRunnning = false;
                     await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         response.Message,
-                        "Got it !!");
+                        Languages.Accept);
                     return;
                 }
 
@@ -275,9 +273,9 @@
 
                 this.IsRunnning = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "we sorry...",
-                    "you must select a book ",
-                    "Got it !!");
+                    Languages.Error,
+                    Languages.SelectBook,
+                    Languages.Accept);
                 return;
             }            
         }         

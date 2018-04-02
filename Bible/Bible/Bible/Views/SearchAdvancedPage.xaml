@@ -2,9 +2,10 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:i18n="clr-namespace:Bible.Helpers"
     x:Class="Bible.Views.SearchAdvancedPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Search by Verse">
+    Title="{i18n:Translate SearchByVerse}">
     <ContentPage.Content>        
         <StackLayout
             BindingContext="{Binding Search}"
@@ -14,7 +15,7 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 TextColor="Black"
-                Text="Result of search">
+                Text="{i18n:Translate ResultSearch}">
             </Label>            
             <ListView                 
                 HasUnevenRows="true"                 
@@ -58,7 +59,7 @@
                         Grid.Row="0"
                         Grid.Column="0"                 
                         TextColor="Black"
-                        Text="Book"
+                        Text="{i18n:Translate Book}"
                         VerticalOptions="Center">
                     </Label>
                     <Picker                        
@@ -68,7 +69,7 @@
                         ItemDisplayBinding="{Binding Name}"                         
                         SelectedItem="{Binding SelectedItemBook}"
                         TextColor="Black"
-                        Title="Select a book">
+                        Title="{i18n:Translate SelectBook}">
                     </Picker>                    
                     <Label
                         FontAttributes="Bold"                    
@@ -76,13 +77,13 @@
                         Grid.Column="0"                         
                         Margin="5"
                         TextColor="Black"
-                        Text="Chapter and Verses"
+                        Text="{i18n:Translate ChapterVerses}"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="1"
                         Grid.Column="1"                        
-                        Placeholder="e.g 1:3-10"                        
+                        Placeholder="{i18n:Translate Example}"                        
                         Text="{Binding VersesParameter, Mode=TwoWay}">
                     </Entry>
                     <ActivityIndicator
@@ -96,7 +97,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         HorizontalOptions="EndAndExpand"
-                        Text="Search"
+                        Text="{i18n:Translate SearchButton}"
                         Command="{Binding SearchVersesCommand}"
                         TextColor="WhiteSmoke">
                     </Button>

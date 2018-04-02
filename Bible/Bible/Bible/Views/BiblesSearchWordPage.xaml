@@ -2,9 +2,10 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:i18n="clr-namespace:Bible.Helpers"
     x:Class="Bible.Views.BiblesSearchWordPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Search by keyword">
+    Title="{i18n:Translate SearchByKeyword}">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Bibles}"
