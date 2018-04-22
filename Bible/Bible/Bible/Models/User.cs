@@ -35,7 +35,7 @@
                 if (this.UserTypeId == 1)
                 {
                     return string.Format(
-                        "http://healthcenterapi.azurewebsites.net/{0}",
+                        "http://knowingworldapi.azurewebsites.net/{0}",
                         ImagePath.Substring(1));
                 }
 
