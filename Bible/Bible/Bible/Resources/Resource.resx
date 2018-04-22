@@ -312,4 +312,7 @@
   <data name="ValidVerses" xml:space="preserve">
     <value>the field verses should contain at least some of this character: digits : -, it doesn't allow words or letter...</value>
   </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
 </root>

@@ -337,7 +337,11 @@
         {
             get { return Resource.SuccessRegister; }
         }
-               
+        
+        public static string MyProfile
+        {
+            get { return Resource.MyProfile; }
+        }
     }
 
 }

@@ -306,4 +306,7 @@
   <data name="TypePhoneNumber" xml:space="preserve">
     <value>Usted debe ingresar el numero de telefono...</value>
   </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Mi perfil</value>
+  </data>
 </root>

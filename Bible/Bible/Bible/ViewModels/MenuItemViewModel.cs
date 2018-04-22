@@ -42,19 +42,24 @@
                 mainViewModel.TokenType = string.Empty;
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
             }
-
-            if (this.PageName == "BiblesSearchPage")
+            else if (this.PageName == "BiblesSearchPage")
             {
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Bibles = new BiblesViewModel();
-                App.Navigator.PushAsync(new BiblesSearchPage());                
+                App.Navigator.PushAsync(new BiblesSearchPage());  
+                
             }
-
-            if (this.PageName == "BiblesSearchWordPage")
+            else if (this.PageName == "BiblesSearchWordPage")
             {
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Bibles = new BiblesViewModel();
                 App.Navigator.PushAsync(new BiblesSearchWordPage());
+
+            }
+            else if (this.PageName == "MyProfilePage")
+            {
+                MainViewModel.GetInstance().MyProfile = new MyProfileViewModel();
+                App.Navigator.PushAsync(new MyProfilePage());
             }
         }
         #endregion

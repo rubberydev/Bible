@@ -76,11 +76,11 @@
                                   new NavigationPage(new LoginPage()));
             }
         }
-        public static void NavigateToProfile<T>(T profile, string socialNetwork)
+        public static async Task NavigateToProfile<T>(T profile, string socialNetwork)
         {
-            switch (socialNetwork)
-            {
-                case "Instagram":
+            //switch (socialNetwork)
+            //{
+            //    case "Instagram":
                     //En este objeto tenemos todos los datos del usuario
                     InstagramResponse ResponseSocialNetwork = profile as InstagramResponse;  
                     
@@ -89,34 +89,47 @@
                         Application.Current.MainPage = new NavigationPage(new LoginPage());
                         return;
                     }
-
-                    var user = new User
-                    {
-                        FirstName = ResponseSocialNetwork.UserData.FullName,
-                        ImagePath = ResponseSocialNetwork.UserData.ProfilePicture,
-                        UserTypeId = 2,
-                        Email = "",
-                        Telephone = "",
-                        Password = ""
-                       
-                    };
-
+                    //=====================================================================================
+                    var apiService = new ApiService();
                     var dataService = new DataService();
+
+                    var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+                    var token = await apiService.LoginInstagram(
+                        apiSecurity,
+                        "/api",
+                        "/Users/LoginInstagram",
+                        ResponseSocialNetwork);            
+
+                    if (token == null)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new LoginPage());
+                        return;
+                    }
+
+                    var user = await apiService.GetUserByEmail(
+                        apiSecurity,
+                        "/api",
+                        "/Users/GetUserByEmail",
+                        token.TokenType,
+                        token.AccessToken,
+                        token.UserName);
+
                     User userLocal = null;
                     if (user != null)
                     {
                         userLocal = Converter.ToUserLocal(user);
                         dataService.DeleteAllAndInsert(userLocal);
+                        dataService.DeleteAllAndInsert(token);
                     }
 
-                    var mainViewModel = MainViewModel.GetInstance();                    
+                    var mainViewModel = MainViewModel.GetInstance();
+                    mainViewModel.Token_ = token;
                     mainViewModel.User = userLocal;
                     Settings.IsRemembered = "true";
 
                     mainViewModel.Bibles = new BiblesViewModel();
-                    Application.Current.MainPage = new MasterPage();
-                    break;
-            }             
+                    Application.Current.MainPage = new MasterPage();                  
+                         
         }
 
         #endregion

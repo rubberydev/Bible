@@ -50,6 +50,12 @@
             set;
         }
 
+        public MyProfileViewModel MyProfile
+        {
+            get;
+            set;
+        }
+
         public SearchAdvancedViewModel Search
         {
             get;
@@ -116,7 +122,14 @@
         #region Methods
         private void LoadMenu()
         {
-            this.Menus = new ObservableCollection<MenuItemViewModel>();            
+            this.Menus = new ObservableCollection<MenuItemViewModel>();
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_person",
+                Title = Languages.MyProfile,
+                PageName = "MyProfilePage"
+            });
 
             this.Menus.Add(new MenuItemViewModel
             {
@@ -138,6 +151,7 @@
                 Title = Languages.LogOut,
                 PageName = "LoginPage"
             });
+            
         }
         #endregion
 
